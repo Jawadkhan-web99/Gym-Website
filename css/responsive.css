@@ -1,0 +1,1057 @@
+/* ==========================================================================
+   NEUROFIT - PRODUCTION RESPONSIVE DESIGN SYSTEM
+   Breakpoints:
+   - Ultra-Wide / Large Desktop (> 1440px)
+   - Standard Laptop / Desktop (1025px - 1440px)
+   - Tablet Landscape & Portrait (768px - 1024px)
+   - Mobile Standard (481px - 767px)
+   - Small Mobile (320px - 480px)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. LARGE DESKTOPS (> 1440px / 1536px / 1920px)
+   ========================================================================== */
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1440px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .container-wide {
+    max-width: 1680px;
+  }
+
+  .hero-headline {
+    font-size: clamp(5.5rem, 6.8vw, 7.5rem);
+  }
+
+  .coaches-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+  }
+
+  .coach-mockup-img-wrap {
+    height: 320px;
+  }
+}
+
+/* ==========================================================================
+   2. STANDARD LAPTOP & DESKTOP (1025px - 1440px)
+   ========================================================================== */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .container {
+    max-width: 1240px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .nav-menu {
+    gap: 1.5rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(3.8rem, 5.2vw, 5.2rem);
+  }
+
+  .experience-panel {
+    width: 42vw;
+    height: 64vh;
+    min-height: 480px;
+  }
+
+  .smart-pricing-cards-grid {
+    max-width: 960px;
+    gap: 2rem;
+  }
+
+  .coaches-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .coach-mockup-img-wrap {
+    height: 280px;
+  }
+
+  .pricing-grid {
+    gap: 1.75rem;
+  }
+
+  .footer-top {
+    grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+    gap: 2rem;
+  }
+
+  .pinned-globe-layout {
+    gap: 3rem;
+  }
+}
+
+/* ==========================================================================
+   3. TABLET LANDSCAPE & PORTRAIT (768px - 1024px / 820px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+
+  /* --- GLOBAL NAVBAR --- */
+  .nav-menu,
+  .nav-actions > .btn {
+    display: none !important;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(0, 212, 255, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    cursor: pointer !important;
+    z-index: 9999 !important;
+  }
+
+  .nav-toggle span {
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    background-color: #FFFFFF !important;
+    border-radius: 2px !important;
+  }
+
+  /* --- CONTAINER & SECTIONS --- */
+  .container {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+
+  .section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  /* --- GRIDS --- */
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* --- HERO SECTION --- */
+  .hero-neurofit {
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding-top: 6rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-neurofit-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-left-content {
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .hero-headline {
+    font-size: clamp(3.2rem, 8vw, 4.8rem);
+  }
+
+  .hero-right-overlay {
+    position: static;
+    text-align: left;
+    max-width: 100%;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(12, 21, 39, 0.7);
+    border: 1px solid var(--border-medium);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    backdrop-filter: blur(14px);
+  }
+
+  .hero-right-overlay h3 {
+    font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+    line-height: 1.25;
+  }
+
+  .hero-stats-row {
+    gap: 2rem;
+    margin-top: 2.25rem;
+  }
+
+  /* --- COACHES SECTION --- */
+  .coaches-header-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .coaches-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem;
+  }
+
+  .coach-mockup-img-wrap {
+    height: 280px;
+  }
+
+  /* --- SMART PRICING --- */
+  .smart-pricing-cards-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 540px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+
+  .smart-card {
+    min-height: auto;
+    border-radius: 16px;
+  }
+
+  /* --- MEMBERSHIP PRICING CARDS --- */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  .pricing-card.featured:hover {
+    transform: translateY(-4px);
+  }
+
+  /* --- 3D PINNED GLOBE SECTION (TABLET) --- */
+  .pinned-globe-section {
+    padding: 4rem 0;
+  }
+
+  .pinned-globe-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .pinned-globe-left {
+    position: relative;
+    top: 0;
+    height: 420px;
+    min-height: 380px;
+    max-height: 460px;
+    width: 100%;
+    margin: 0 auto 1rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-medium);
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.08) 0%, rgba(3, 7, 15, 0.95) 75%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+  }
+
+  .world-container,
+  .three-globe-viewport,
+  #three-canvas-container {
+    height: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+  }
+
+  .globe-scroll-card {
+    height: auto;
+    min-height: 240px;
+    padding: 1.75rem;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* --- HORIZONTAL TRACK ON TABLET (TOUCH SWIPE) --- */
+  .horizontal-scroll-container {
+    overflow: hidden;
+    padding: 3rem 0;
+  }
+
+  .horizontal-track {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: auto;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 1.75rem 2rem 1.75rem;
+  }
+
+  .horizontal-track::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .horizontal-track::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+  }
+
+  .experience-panel {
+    width: 380px;
+    height: 460px;
+    min-height: 440px;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    border-radius: 16px;
+  }
+
+  /* --- PROGRAM & TRAINER CARDS --- */
+  .program-card {
+    height: auto !important;
+    min-height: 480px !important;
+  }
+
+  /* --- FOOTER --- */
+  .footer-top {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   4. MOBILE STANDARD (481px - 767px) & SMALL MOBILE (320px - 480px)
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  /* --- ROOT RESET --- */
+  :root {
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 3.5rem;
+  }
+
+  /* --- CONTAINER --- */
+  .container,
+  .container-wide {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* --- SECTION PADDINGS --- */
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .section-hero {
+    min-height: 90vh;
+    min-height: 90dvh;
+    height: auto;
+    padding-top: clamp(6rem, 12vh, 8rem);
+    padding-bottom: clamp(3rem, 6vh, 4rem);
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+
+  /* --- TYPOGRAPHY FLUID SCALING --- */
+  .section-title {
+    font-size: clamp(1.8rem, 6.8vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .section-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .scrub-intro-text {
+    font-size: clamp(1.45rem, 5.2vw, 2.2rem) !important;
+    line-height: 1.35 !important;
+  }
+
+  /* --- ALL GRIDS COLLAPSE CLEANLY --- */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .flex-between {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* --- HERO SECTION ON MOBILE --- */
+  .hero-neurofit {
+    padding-top: clamp(5.5rem, 12vh, 7rem);
+    padding-bottom: 3.5rem;
+    min-height: 100svh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-neurofit-grid {
+    grid-template-columns: 1fr !important;
+    min-height: auto;
+    gap: 1.5rem;
+  }
+
+  .hero-left-content {
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.5rem, 11vw, 3.8rem) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  /* Hero Stats Row (Glassmorphic 3-column pill) */
+  .hero-stats-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+    background: rgba(12, 21, 39, 0.75) !important;
+    padding: 1.15rem 0.75rem !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border-subtle) !important;
+    backdrop-filter: blur(16px) !important;
+    margin-top: 1.75rem !important;
+  }
+
+  .hero-stat-item {
+    text-align: center !important;
+  }
+
+  .hero-stat-val {
+    font-size: clamp(1.3rem, 4.8vw, 1.75rem) !important;
+    color: var(--accent) !important;
+    font-weight: 800 !important;
+    font-family: var(--font-display) !important;
+    line-height: 1 !important;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    margin-top: 0.3rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Hero Right Quote Card */
+  .hero-right-overlay {
+    position: static !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 1.5rem !important;
+    padding: 1.35rem 1.15rem !important;
+    background: rgba(12, 21, 39, 0.65) !important;
+    border: 1px solid var(--border-medium) !important;
+    border-left: 4px solid var(--accent) !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(14px) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  }
+
+  .hero-right-overlay h3 {
+    font-size: clamp(1.15rem, 4.5vw, 1.45rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  /* --- BUTTONS --- */
+  .btn {
+    padding: 0.95rem 1.6rem;
+    font-size: 0.92rem;
+    min-height: 48px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-lg {
+    padding: 1.05rem 1.85rem;
+    font-size: 0.95rem;
+    min-height: 52px;
+  }
+
+  /* --- MARQUEE --- */
+  .marquee-wrapper {
+    overflow: hidden;
+    margin: 2.5rem 0 !important;
+    padding: 0.85rem 0 !important;
+  }
+
+  .marquee-item {
+    font-size: 1.35rem !important;
+    gap: 1.25rem !important;
+  }
+
+  .marquee-track {
+    gap: 1.25rem !important;
+  }
+
+  /* --- COACHES SECTION (2-COL BALANCED) --- */
+  .coaches-section {
+    padding: 3.5rem 0;
+  }
+
+  .coaches-header-row {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  .coaches-header-title {
+    font-size: clamp(1.75rem, 6.2vw, 2.4rem) !important;
+    line-height: 1.12 !important;
+  }
+
+  .coaches-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem !important;
+  }
+
+  .coach-mockup-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface-elevated);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+
+  .coach-mockup-img-wrap {
+    height: 190px !important;
+    width: 100%;
+  }
+
+  .coach-mockup-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .coach-mockup-name {
+    font-size: 0.85rem !important;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .coach-mockup-role {
+    font-size: 0.7rem !important;
+    color: var(--accent);
+    margin-top: 0.2rem;
+  }
+
+  .coach-mockup-info {
+    padding: 0.75rem 0.65rem !important;
+  }
+
+  /* --- SMART PRICING SECTION --- */
+  .smart-pricing-section {
+    padding: 3.5rem 0;
+  }
+
+  .smart-pricing-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .smart-card {
+    min-height: auto !important;
+    border-radius: 16px !important;
+  }
+
+  .smart-card-content {
+    padding: 1.75rem 1.25rem 1.5rem !important;
+    gap: 1.25rem !important;
+  }
+
+  .smart-price-current {
+    font-size: 2.6rem !important;
+  }
+
+  /* --- MEMBERSHIP PRICING CARDS --- */
+  .pricing-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+    gap: 1.5rem !important;
+  }
+
+  .pricing-card {
+    border-radius: 16px !important;
+    padding: 2rem 1.35rem !important;
+    background: var(--bg-surface-elevated) !important;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1) !important;
+    border: 2px solid var(--accent) !important;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.25) !important;
+  }
+
+  .pricing-amount {
+    font-size: 2.75rem !important;
+  }
+
+  .billing-toggle-wrap {
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  /* --- STATS COUNTERS GRID --- */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 1.75rem 1rem !important;
+    gap: 1.25rem !important;
+  }
+
+  .stat-number {
+    font-size: clamp(1.85rem, 6.5vw, 2.6rem) !important;
+  }
+
+  /* --- FOOTER ON MOBILE --- */
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 2.25rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    text-align: center !important;
+  }
+
+  .footer-bottom div:last-child {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+
+  .footer-watermark {
+    font-size: clamp(3rem, 16vw, 6rem) !important;
+    letter-spacing: -0.01em !important;
+    text-align: center !important;
+    opacity: 0.05 !important;
+  }
+
+  /* --- HORIZONTAL TRACK ON MOBILE (SNAP SWIPE) --- */
+  .horizontal-scroll-container {
+    overflow: hidden !important;
+    padding: 2rem 0 !important;
+  }
+
+  .horizontal-track {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    height: auto !important;
+    gap: 1rem !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0.75rem 1.25rem 1.75rem 1.25rem !important;
+  }
+
+  .horizontal-track::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .horizontal-track::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+  }
+
+  .experience-panel {
+    width: 82vw !important;
+    max-width: 320px !important;
+    height: 400px !important;
+    min-height: 400px !important;
+    padding: 1.75rem 1.25rem !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  .experience-panel-title {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  .experience-panel-num {
+    font-size: clamp(1.8rem, 6vw, 2.4rem) !important;
+  }
+
+  /* --- 3D WORLD GLOBE SECTION (MOBILE TOUCH DRAG) --- */
+  .pinned-globe-section {
+    padding: 3rem 0 !important;
+  }
+
+  .pinned-globe-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .pinned-globe-left {
+    position: relative !important;
+    top: 0 !important;
+    height: 380px !important;
+    min-height: 350px !important;
+    max-height: 400px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    border-radius: 16px !important;
+    border: 1px solid var(--border-medium) !important;
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.08) 0%, rgba(3, 7, 15, 0.95) 75%) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7) !important;
+    overflow: hidden !important;
+    touch-action: none !important;
+  }
+
+  .world-container,
+  .three-globe-viewport,
+  #three-canvas-container {
+    height: 100% !important;
+    width: 100% !important;
+    position: relative !important;
+    touch-action: none !important;
+  }
+
+  .globe-scroll-card {
+    height: auto !important;
+    min-height: 220px !important;
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 14px !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+
+  .pinned-globe-right {
+    gap: 1.25rem !important;
+  }
+
+  /* --- IMAGE EXPANSION SECTION --- */
+  .image-expansion-section {
+    min-height: auto !important;
+    padding: 2.5rem 0 !important;
+  }
+
+  .image-expansion-wrap {
+    width: 100% !important;
+    height: 44vh !important;
+    min-height: 280px !important;
+    border-radius: 12px !important;
+  }
+
+  .image-expansion-title {
+    font-size: clamp(1.8rem, 7vw, 2.8rem) !important;
+  }
+
+  /* --- TRANSFORMATION PROCESS SECTION --- */
+  .transformation-section {
+    padding: 3rem 0 !important;
+  }
+
+  .transformation-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .transformation-left-pinned {
+    position: static !important;
+  }
+
+  .transformation-stage-indicator {
+    font-size: clamp(3rem, 14vw, 5rem) !important;
+  }
+
+  .transformation-card {
+    padding: 1.35rem 1.15rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* --- TEXT MASK SECTION --- */
+  .text-mask-section {
+    padding: 3rem 0 !important;
+  }
+
+  .text-mask-title {
+    font-size: clamp(1.85rem, 7.5vw, 3.2rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  /* --- ACCORDIONS ON MOBILE --- */
+  .accordion-header {
+    padding: 1.15rem 0.85rem !important;
+    min-height: 52px !important;
+  }
+
+  .accordion-question {
+    font-size: 0.95rem !important;
+  }
+
+  .accordion-content {
+    padding: 0 0.85rem 1.15rem 0.85rem !important;
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+  }
+
+  /* --- MODAL CONTAINERS ON MOBILE --- */
+  .modal-container {
+    width: 92vw !important;
+    max-width: 440px !important;
+    padding: 1.85rem 1.25rem !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    border-radius: 12px !important;
+  }
+
+  .modal-container h3 {
+    font-size: 1.45rem !important;
+  }
+
+  /* --- MOBILE FULLSCREEN DRAWER --- */
+  .mobile-nav-link {
+    font-size: clamp(1.65rem, 5.5vw, 2.2rem) !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  /* --- PROGRAM CARDS (PROGRAMS.HTML) --- */
+  .program-card {
+    height: auto !important;
+    min-height: 460px !important;
+    padding: 2rem 1.35rem 1.5rem 1.35rem !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+  }
+
+  .program-card-title {
+    font-size: 1.45rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .program-card-desc {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* --- TRAINER CARDS (TRAINERS.HTML) --- */
+  .trainer-card {
+    margin-bottom: 1.25rem !important;
+    border-radius: 14px !important;
+  }
+
+  .trainer-image-wrap {
+    height: 280px !important;
+  }
+
+  .trainer-info {
+    padding: 1.25rem !important;
+  }
+
+  /* --- MEMBERSHIP COMPARISON TABLE --- */
+  .comparison-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 10px !important;
+    margin: 1.5rem 0 !important;
+  }
+
+  .comparison-table-wrap table {
+    min-width: 540px !important;
+  }
+
+  /* --- ABOUT PAGE STORY & METRICS --- */
+  .about-story-metrics {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+    padding: 1.15rem 0.75rem !important;
+    border-radius: 12px !important;
+  }
+
+  .about-story-metrics .font-display {
+    font-size: 1.75rem !important;
+  }
+
+  .about-timeline-item {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .about-timeline-year {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    padding-right: 0 !important;
+    padding-bottom: 0.65rem !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 0.65rem !important;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  /* --- CONTACT PAGE INPUT GRIDS --- */
+  #contact-form div[style*="grid-template-columns"],
+  .contact-form div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+
+  .form-input,
+  .form-control {
+    font-size: 0.95rem !important;
+    padding: 0.85rem 1rem !important;
+  }
+
+  /* --- TESTIMONIAL SLIDER --- */
+  .testimonial-slide {
+    padding: 1.75rem 1.25rem !important;
+    border-radius: 14px !important;
+  }
+
+  .testimonial-slide p {
+    font-size: clamp(1.15rem, 4vw, 1.45rem) !important;
+    line-height: 1.4 !important;
+  }
+
+  /* --- DUAL CURSOR HIDDEN ON TOUCH --- */
+  .cursor-wrapper {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   5. ULTRA-COMPACT MOBILE (< 380px) (iPhone SE, Small Androids)
+   ========================================================================== */
+@media (max-width: 380px) {
+  .hero-headline {
+    font-size: 2.2rem !important;
+  }
+
+  .coaches-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .coach-mockup-img-wrap {
+    height: 240px !important;
+  }
+
+  .hero-stats-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .about-story-metrics {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .experience-panel {
+    width: 88vw !important;
+  }
+}
+
+/* ==========================================================================
+   6. TOUCH-DEVICE SPECIFIC OPTIMIZATIONS
+   ========================================================================== */
+@media (pointer: coarse) {
+  .accordion-header {
+    min-height: 54px;
+  }
+
+  .btn {
+    min-height: 48px;
+  }
+
+  .nav-toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+}
+
+/* ==========================================================================
+   7. LANDSCAPE ORIENTATION ON PHONES (max-height: 500px)
+   ========================================================================== */
+@media (max-height: 500px) and (max-width: 900px) {
+  .section-hero,
+  .hero-neurofit {
+    min-height: auto !important;
+    padding-top: 5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  .mobile-nav-overlay {
+    overflow-y: auto !important;
+  }
+
+  .mobile-nav-link {
+    font-size: 1.35rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .experience-panel {
+    min-height: 320px !important;
+    height: 320px !important;
+  }
+
+  .pinned-globe-left {
+    height: 320px !important;
+  }
+}
+

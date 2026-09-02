@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Coaches | NEUROFIT - Coached to Perform</title>
+  <meta name="description" content="Meet our elite coaching roster at NEUROFIT. Certified CSCS, FRC, and Olympic strength specialists committed to your peak athletic output.">
+  
+  <meta property="og:title" content="Master Coaches | NEUROFIT">
+  <meta property="og:description" content="Coached to perform. Elite strength, hypertrophy, and functional mentors in Peshawar.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Google Fonts: Space Grotesk, Inter, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Instant Page Navigation & Selective Preloader (Starts & Refresh Only) -->
+  <script>
+    (function() {
+      try {
+        var perfEntries = (window.performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+        var isReload = (perfEntries.length > 0 && perfEntries[0].type === 'reload') ||
+                       (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+        var hasStarted = sessionStorage.getItem('neurofit_started');
+
+        if (hasStarted && !isReload) {
+          document.documentElement.classList.add('preloader-done');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body data-page="trainers">
+
+  <!-- ==========================================================================
+       PAGE INITIAL PRELOADER (From Uiverse.io by KSAplay)
+       ========================================================================== -->
+  <div id="page-preloader" class="page-preloader">
+    <div class="loader">
+      <div class="loading-text">
+        Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+      </div>
+      <div class="loading-bar-background">
+        <div class="loading-bar">
+          <div class="white-bars-container">
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Scroll Progress -->
+  <div class="scroll-progress-bar">
+    <div class="scroll-progress-fill"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-wrapper">
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower">
+      <span class="cursor-text"></span>
+    </div>
+  </div>
+
+  <!-- Global Navbar -->
+  <header class="site-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" data-cursor="EXPLORE" style="gap: 0.5rem; text-decoration: none;">
+        <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link active">Trainers</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm magnetic-btn" data-modal-target="coach-modal" data-cursor="JOIN" style="border-radius: 6px; padding: 0.55rem 1.4rem; font-weight: 700;">
+          <span>Book Coach</span>
+        </button>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Overlay Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span class="num">01</span> Home</a>
+      <a href="about.html" class="mobile-nav-link"><span class="num">02</span> About</a>
+      <a href="programs.html" class="mobile-nav-link"><span class="num">03</span> Programs</a>
+      <a href="trainers.html" class="mobile-nav-link active"><span class="num">04</span> Trainers</a>
+      <a href="membership.html" class="mobile-nav-link"><span class="num">05</span> Membership</a>
+      <a href="contact.html" class="mobile-nav-link"><span class="num">06</span> Contact</a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <button class="btn btn-primary btn-lg" data-modal-target="coach-modal">
+        <span>Book Consultation</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
+      <div class="mobile-nav-meta">
+        <div>24/7 AI-POWERED FITNESS PLATFORM</div>
+        <div>SMART METRICS &bull; BIOMECHANICS &bull; RESULTS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="section-hero">
+    <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=2070&auto=format&fit=crop" 
+         alt="Coach instructing athlete" 
+         class="hero-bg-img"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.35) contrast(1.15);">
+    
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(6,6,8,0.2) 0%, rgba(6,6,8,0.9) 100%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 3; width: 100%;">
+      <div class="section-eyebrow" style="margin-bottom: 1.5rem;">ELITE FACULTY</div>
+      
+      <h1 class="font-display" style="font-size: clamp(3.8rem, 11vw, 10.5rem); line-height: 0.88; text-transform: uppercase; margin-bottom: 2rem;">
+        <div class="hero-title-line">COACHED TO</div>
+        <div class="hero-title-line" style="color: var(--accent);">PERFORM.</div>
+      </h1>
+
+      <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--text-muted); max-width: 760px; line-height: 1.7; margin-bottom: 2.5rem;">
+        Our mentors aren't just rep counters. They are certified sports scientists, competitive powerlifters, and biomechanics specialists dedicated to unlocking your athletic potential.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TRAINER FILTER TABS
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base); padding-top: 3rem;">
+    <div class="container">
+      <div class="trainer-filter-tabs" style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3.5rem;">
+        <button class="btn btn-secondary btn-sm trainer-filter-btn active" data-filter="all">All Coaches (6)</button>
+        <button class="btn btn-secondary btn-sm trainer-filter-btn" data-filter="strength">Strength &amp; Power</button>
+        <button class="btn btn-secondary btn-sm trainer-filter-btn" data-filter="hypertrophy">Hypertrophy</button>
+        <button class="btn btn-secondary btn-sm trainer-filter-btn" data-filter="mobility">Mobility &amp; Rehab</button>
+        <button class="btn btn-secondary btn-sm trainer-filter-btn" data-filter="nutrition">Nutrition &amp; Speed</button>
+      </div>
+
+      <!-- 6 Trainer Cards Grid -->
+      <div class="grid-3" style="gap: 2.5rem;">
+        
+        <!-- 01 Alex Morgan -->
+        <div class="trainer-grid-item" data-category="strength">
+          <div class="trainer-card" data-cursor="VIEW">
+            <div class="trainer-image-wrap">
+              <img src="assets/images/trainers/trainer-1.jpg" alt="Alex Morgan" class="trainer-image" loading="lazy">
+            </div>
+            <div class="trainer-info">
+              <div class="trainer-specialty">HEAD OF STRENGTH</div>
+              <h3 class="trainer-name">Alex Morgan</h3>
+              <p class="trainer-exp">CSCS Certified // 11+ Yrs Exp</p>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+                Specializes in rate of force development, heavy barbell wave periodization, and powerlifting competition preparation.
+              </p>
+              <button class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 1rem;" data-modal-target="coach-modal">
+                <span>Book Alex</span>
+                <i data-lucide="calendar"></i>
+              </button>
+              <div class="trainer-socials">
+                <a href="#" class="trainer-social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 Tariq Vance -->
+        <div class="trainer-grid-item" data-category="mobility">
+          <div class="trainer-card" data-cursor="VIEW">
+            <div class="trainer-image-wrap">
+              <img src="assets/images/trainers/trainer-2.jpg" alt="Tariq Vance" class="trainer-image" loading="lazy">
+            </div>
+            <div class="trainer-info">
+              <div class="trainer-specialty">FUNCTIONAL &amp; ATHLETIC POWER</div>
+              <h3 class="trainer-name">Tariq Vance</h3>
+              <p class="trainer-exp">FRC &amp; CSCS Specialist // 8+ Yrs Exp</p>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+                Pioneering joint capsule resilience, Functional Range Conditioning, and high-performance athletic strength protocols.
+              </p>
+              <button class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 1rem;" data-modal-target="coach-modal">
+                <span>Book Tariq</span>
+                <i data-lucide="calendar"></i>
+              </button>
+              <div class="trainer-socials">
+                <a href="#" class="trainer-social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03 Daniel Carter -->
+        <div class="trainer-grid-item" data-category="hypertrophy">
+          <div class="trainer-card" data-cursor="VIEW">
+            <div class="trainer-image-wrap">
+              <img src="assets/images/trainers/trainer-3.jpg" alt="Daniel Carter" class="trainer-image" loading="lazy">
+            </div>
+            <div class="trainer-info">
+              <div class="trainer-specialty">HYPERTROPHY &amp; RECOMP</div>
+              <h3 class="trainer-name">Daniel Carter</h3>
+              <p class="trainer-exp">IFBB Pro Coach // 9+ Yrs Exp</p>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+                Expert in maximizing mechanical tension, muscle protein synthesis schedules, and bodybuilding contest prep.
+              </p>
+              <button class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 1rem;" data-modal-target="coach-modal">
+                <span>Book Daniel</span>
+                <i data-lucide="calendar"></i>
+              </button>
+              <div class="trainer-socials">
+                <a href="#" class="trainer-social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 Ryan Brooks -->
+        <div class="trainer-grid-item" data-category="strength">
+          <div class="trainer-card" data-cursor="VIEW">
+            <div class="trainer-image-wrap">
+              <img src="assets/images/trainers/trainer-4.jpg" alt="Ryan Brooks" class="trainer-image" loading="lazy">
+            </div>
+            <div class="trainer-info">
+              <div class="trainer-specialty">BIOMECHANICS &amp; POWER</div>
+              <h3 class="trainer-name">Ryan Brooks</h3>
+              <p class="trainer-exp">USAPL National // 10+ Yrs Exp</p>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+                Analyzes bar path metrics, lever angles, and neuromuscular firing patterns for elite strength athletes.
+              </p>
+              <button class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 1rem;" data-modal-target="coach-modal">
+                <span>Book Ryan</span>
+                <i data-lucide="calendar"></i>
+              </button>
+              <div class="trainer-socials">
+                <a href="#" class="trainer-social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05 Zayn Malik -->
+        <div class="trainer-grid-item" data-category="nutrition">
+          <div class="trainer-card" data-cursor="VIEW">
+            <div class="trainer-image-wrap">
+              <img src="assets/images/trainers/trainer-5.jpg" alt="Zayn Malik" class="trainer-image" loading="lazy">
+            </div>
+            <div class="trainer-info">
+              <div class="trainer-specialty">SPEED &amp; AGILITY</div>
+              <h3 class="trainer-name">Zayn Malik</h3>
+              <p class="trainer-exp">Ex-National Sprinter // 7+ Yrs Exp</p>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+                Coaches 40-yard dash mechanics, reactive agility drills, and high-intensity turf conditioning.
+              </p>
+              <button class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 1rem;" data-modal-target="coach-modal">
+                <span>Book Zayn</span>
+                <i data-lucide="calendar"></i>
+              </button>
+              <div class="trainer-socials">
+                <a href="#" class="trainer-social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06 Maya Thorne -->
+        <div class="trainer-grid-item" data-category="nutrition">
+          <div class="trainer-card" data-cursor="VIEW">
+            <div class="trainer-image-wrap">
+              <img src="assets/images/trainers/trainer-6.jpg" alt="Maya Thorne" class="trainer-image" loading="lazy">
+            </div>
+            <div class="trainer-info">
+              <div class="trainer-specialty">SPORTS NUTRITION &amp; METABOLIC</div>
+              <h3 class="trainer-name">Maya Thorne</h3>
+              <p class="trainer-exp">MSc Sports Nutrition // 6+ Yrs Exp</p>
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+                Crafts metabolic conditioning strategies, nutrient timing protocols, and body recomp plans.
+              </p>
+              <button class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 1rem;" data-modal-target="coach-modal">
+                <span>Book Maya</span>
+                <i data-lucide="calendar"></i>
+              </button>
+              <div class="trainer-socials">
+                <a href="#" class="trainer-social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                <a href="#" class="trainer-social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       COACHING PHILOSOPHY SECTION
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-surface); border-top: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="grid-2 trainers-coaching-grid" style="align-items: center; gap: 4rem;">
+        <div>
+          <div class="section-eyebrow">OUR COMMITMENT</div>
+          <h2 class="section-title" style="margin-bottom: 1.5rem;">ZERO GUESSWORK. MAXIMUM ACCOUNTABILITY.</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            At NEUROFIT, personal training is treated as a clinical science. We monitor training loads, bar speed, resting heart rate variability, and nutritional intake through weekly digital check-ins.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <i data-lucide="check-circle-2" style="color: var(--accent);"></i>
+              <span style="font-weight: 600; color: #fff;">100% University &amp; Board Certified Faculty</span>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <i data-lucide="check-circle-2" style="color: var(--accent);"></i>
+              <span style="font-weight: 600; color: #fff;">Bi-Weekly DEXA &amp; InBody Composition Tracking</span>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+              <i data-lucide="check-circle-2" style="color: var(--accent);"></i>
+              <span style="font-weight: 600; color: #fff;">Direct 24/7 WhatsApp Coach Access</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-medium); border-radius: 16px; padding: 3rem;">
+          <h3 class="font-headline" style="font-size: 1.8rem; text-transform: uppercase; color: #fff; margin-bottom: 1rem;">SCHEDULE A COACH MATCHING CALL</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Not sure which coach is best for your sport or body goals? We will pair you with the ideal specialist.</p>
+          <button class="btn btn-primary btn-lg magnetic-btn" style="width: 100%;" data-modal-target="coach-modal">
+            <span>Match Me With a Coach</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="nav-brand" style="margin-bottom: 1.5rem; text-decoration: none;">
+            <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            An elite AI-powered performance and fitness platform combining data-driven training, biometric progress tracking, and world-class coaching.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="programs.html" class="footer-link">Programs</a>
+            <a href="trainers.html" class="footer-link">Trainers</a>
+            <a href="membership.html" class="footer-link">Membership</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <div class="footer-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-link">YouTube</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-link">Facebook</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="footer-link">TikTok</a>
+            <a href="https://spotify.com" target="_blank" rel="noopener" class="footer-link">Spotify Training Playlist</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Platform &amp; HQ</div>
+          <div class="footer-contact-item">
+            <i data-lucide="map-pin"></i>
+            <span>Global Athletic Network &bull; 24/7 Access</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="phone"></i>
+            <span>+1 (800) 555-NEURO</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="mail"></i>
+            <span>support@neurofit.io</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="clock"></i>
+            <span>24/7 AI Real-Time Coaching &amp; Tracking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark -->
+      <div class="footer-watermark">NEUROFIT</div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 NEUROFIT FITNESS PLATFORM. ALL RIGHTS RESERVED.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: var(--text-dark);">PRIVACY POLICY</a>
+          <a href="#" style="color: var(--text-dark);">TERMS OF SERVICE</a>
+          <a href="#" style="color: var(--text-dark);">SAFETY GUIDELINES</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="coach-modal" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <div class="section-eyebrow">COACH CONSULTATION</div>
+      <h3 class="font-headline" style="font-size: 2rem; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 0.5rem;">BOOK 1-ON-1 SESSION</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Select your coach and preferred session time.</p>
+      <form class="js-validate-form">
+        <div class="form-success-banner">
+          <i data-lucide="check-circle" style="margin-bottom: 0.5rem; width: 28px; height: 28px;"></i>
+          <div style="font-weight: 700; font-size: 1.1rem;">CONSULTATION BOOKED!</div>
+          <p style="font-size: 0.85rem; margin-top: 0.25rem;">Your selected coach will contact you to confirm the appointment.</p>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="coach-client-name">Your Full Name</label>
+          <input type="text" id="coach-client-name" class="form-control" placeholder="e.g. Asad Shah" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="coach-client-phone">Phone / WhatsApp</label>
+          <input type="tel" id="coach-client-phone" class="form-control" placeholder="+92 300 1234567" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="coach-pick">Select Coach</label>
+          <select id="coach-pick" class="form-control">
+            <option value="alex">Alex Morgan (Head Strength)</option>
+            <option value="sara">Sara Khan (Mobility &amp; Hybrid)</option>
+            <option value="daniel">Daniel Carter (Hypertrophy Lead)</option>
+            <option value="ryan">Ryan Brooks (Biomechanics &amp; Power)</option>
+            <option value="zayn">Zayn Malik (Speed &amp; Agility)</option>
+            <option value="maya">Maya Thorne (Sports Nutrition)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

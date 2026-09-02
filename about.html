@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | NEUROFIT - AI-Powered Performance & Training Standard</title>
+  <meta name="description" content="Discover the origins, coaching philosophy, and relentless pursuit of excellence that defines NEUROFIT. Engineered for athletic mastery and real-time biometric progress.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="About Us | NEUROFIT AI-Powered Fitness">
+  <meta property="og:description" content="More than a gym. An uncompromising standard. Learn about our philosophy, biomechanics lab, and master coaches.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#060B14">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Google Fonts: Space Grotesk, Inter, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- External Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Instant Page Navigation & Selective Preloader (Starts & Refresh Only) -->
+  <script>
+    (function() {
+      try {
+        var perfEntries = (window.performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+        var isReload = (perfEntries.length > 0 && perfEntries[0].type === 'reload') ||
+                       (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+        var hasStarted = sessionStorage.getItem('neurofit_started');
+
+        if (hasStarted && !isReload) {
+          document.documentElement.classList.add('preloader-done');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body data-page="about">
+
+  <!-- ==========================================================================
+       PAGE INITIAL PRELOADER (From Uiverse.io by KSAplay)
+       ========================================================================== -->
+  <div id="page-preloader" class="page-preloader">
+    <div class="loader">
+      <div class="loading-text">
+        Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+      </div>
+      <div class="loading-bar-background">
+        <div class="loading-bar">
+          <div class="white-bars-container">
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Scroll Progress -->
+  <div class="scroll-progress-bar">
+    <div class="scroll-progress-fill"></div>
+  </div>
+
+  <!-- Dual Cursor -->
+  <div class="cursor-wrapper">
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower">
+      <span class="cursor-text"></span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       GLOBAL NAVBAR (NEUROFIT)
+       ========================================================================== -->
+  <header class="site-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" data-cursor="EXPLORE" style="gap: 0.5rem; text-decoration: none;">
+        <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link">Trainers</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm magnetic-btn" data-modal-target="trial-modal" data-cursor="JOIN" style="border-radius: 6px; padding: 0.55rem 1.4rem; font-weight: 700;">
+          <span>Join Now</span>
+        </button>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Overlay Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span class="num">01</span> Home</a>
+      <a href="about.html" class="mobile-nav-link active"><span class="num">02</span> About</a>
+      <a href="programs.html" class="mobile-nav-link"><span class="num">03</span> Programs</a>
+      <a href="trainers.html" class="mobile-nav-link"><span class="num">04</span> Trainers</a>
+      <a href="membership.html" class="mobile-nav-link"><span class="num">05</span> Membership</a>
+      <a href="contact.html" class="mobile-nav-link"><span class="num">06</span> Contact</a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <button class="btn btn-primary btn-lg" data-modal-target="trial-modal">
+        <span>Start Training</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
+      <div class="mobile-nav-meta">
+        <div>24/7 AI-POWERED FITNESS PLATFORM</div>
+        <div>SMART METRICS &bull; BIOMECHANICS &bull; RESULTS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ABOUT HERO SECTION (MODERN CINEMATIC GRADIENT & DEPTH)
+       ========================================================================== -->
+  <section class="section-hero" style="position: relative; min-height: 90vh; display: flex; align-items: center; background: #060B14; padding: clamp(7rem, 12vh, 9rem) 0 clamp(4rem, 6vh, 5rem);">
+    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=2070&auto=format&fit=crop" 
+         alt="NEUROFIT Elite Training Facility" 
+         class="hero-bg-img"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.28) contrast(1.2);">
+    
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 30% 40%, rgba(72, 149, 241, 0.18) 0%, rgba(6, 11, 20, 0.85) 60%, #060B14 100%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 3; width: 100%;">
+      <div class="badge-ai-pill" style="margin-bottom: 1.5rem; display: inline-flex;">
+        <span class="pill-dot"></span>
+        <span>Our Identity &amp; High-Performance Standard</span>
+      </div>
+      
+      <h1 class="font-display" style="font-size: clamp(2.8rem, 7vw, 6.2rem); line-height: 0.95; text-transform: uppercase; margin-bottom: 1.75rem; color: #FFFFFF;">
+        <div class="hero-title-line">MORE THAN A GYM.</div>
+        <div class="hero-title-line" style="background: var(--accent-gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AN APEX STANDARD.</div>
+      </h1>
+
+      <p class="hero-subtitle" style="font-size: clamp(1rem, 1.6vw, 1.25rem); color: var(--text-secondary); max-width: 760px; line-height: 1.75; margin-bottom: 2.25rem;">
+        NEUROFIT was engineered to replace outdated commercial gym guesswork with uncompromising exercise science, real-time kinetic biometrics, and world-class strength coaching.
+      </p>
+
+      <div class="about-hero-actions" style="display: flex; gap: 1.25rem; flex-wrap: wrap; align-items: center; position: relative; z-index: 10;">
+        <button class="btn btn-primary btn-lg magnetic-btn" data-modal-target="trial-modal" data-cursor="JOIN" style="padding: 1rem 2.25rem; font-size: 0.95rem; font-weight: 700; border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 212, 255, 0.35); display: inline-flex; align-items: center; gap: 0.75rem;">
+          <span>Experience The Facility</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+        <a href="programs.html" class="btn btn-outline btn-lg magnetic-btn" data-cursor="VIEW" style="padding: 1rem 2.25rem; font-size: 0.95rem; font-weight: 700; border-radius: 8px; border: 1px solid var(--border-medium); background: rgba(12, 21, 39, 0.6); backdrop-filter: blur(10px); display: inline-flex; align-items: center;">
+          <span>Explore Protocols</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       OUR STORY / THE GENESIS (CLEAN CARD & BOLD METRICS)
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base); border-bottom: 1px solid var(--border-subtle); padding: 7rem 0;">
+    <div class="container">
+      <div class="grid-2" style="align-items: center; gap: clamp(3rem, 6vw, 6rem);">
+        <div>
+          <div class="section-eyebrow">OUR GENESIS</div>
+          <h2 class="section-title" style="margin-bottom: 1.75rem; font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1.1;">BUILT FROM RAW PASSION &amp; PROVEN SCIENCE</h2>
+          <p style="color: var(--text-main); font-size: 1.08rem; line-height: 1.8; margin-bottom: 1.5rem;">
+            Over a decade ago, our founders—competitive powerlifters, athletic coaches, and sports scientists—grew frustrated with commercial gyms cluttered with broken cables, ego lifting, and cookie-cutter routines that failed to deliver lasting results.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 0.98rem; line-height: 1.8; margin-bottom: 2.5rem;">
+            We built NEUROFIT as a sanctuary for high performance: an elite 24/7 training ecosystem pairing Eleiko competition power cages and 40m indoor sprint turf with automated velocity tracking, bio-recovery plunges, and strict biomechanical audits.
+          </p>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; padding: 1.75rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 16px;">
+            <div>
+              <div class="font-display" style="font-size: 2.6rem; font-weight: 900; color: var(--accent);">2014</div>
+              <div class="font-mono" style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem;">ESTABLISHED</div>
+            </div>
+            <div>
+              <div class="font-display" style="font-size: 2.6rem; font-weight: 900; color: #FFFFFF;">30,000+</div>
+              <div class="font-mono" style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem;">SQ. FT CAMPUS</div>
+            </div>
+            <div>
+              <div class="font-display" style="font-size: 2.6rem; font-weight: 900; color: var(--accent);">99.4%</div>
+              <div class="font-mono" style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem;">TRANSFORMATION</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="position: relative;" data-cursor="EXPLORE">
+          <div style="position: relative; border-radius: 20px; overflow: hidden; border: 1px solid var(--border-medium); box-shadow: 0 20px 50px rgba(0,0,0,0.7);">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop" alt="Athlete training in NEUROFIT" style="width: 100%; height: 500px; object-fit: cover; filter: contrast(1.12) brightness(0.85); display: block;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(6,11,20,0.9) 100%);"></div>
+          </div>
+          
+          <div style="position: absolute; bottom: -20px; right: -20px; background: var(--bg-surface-elevated); border: 1px solid var(--accent); padding: 1.5rem 2rem; border-radius: 14px; box-shadow: 0 20px 45px rgba(0,0,0,0.85); backdrop-filter: blur(16px);" class="hide-mobile">
+            <div class="font-mono" style="color: var(--accent); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 0.3rem;">THE CREED</div>
+            <div class="font-headline" style="font-size: 1.15rem; color: #FFFFFF; font-weight: 900; text-transform: uppercase;">DISCIPLINE. SCIENCE. RESULTS.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TRAINING PHILOSOPHY (4 CORE PILLARS)
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-surface); padding: 7rem 0;">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 760px; margin: 0 auto 4rem; text-align: center;">
+        <div class="section-eyebrow" style="justify-content: center;">THE FOUR CORNERSTONES</div>
+        <h2 class="section-title" style="font-size: clamp(2.2rem, 4.5vw, 3.8rem);">OUR TRAINING METHODOLOGY</h2>
+        <p class="section-desc" style="margin: 1rem auto 0; font-size: 1.05rem; color: var(--text-secondary);">
+          Every session has purpose. We combine biomechanical precision with physiological overload to build bodies that are bulletproof, lean, and exceptionally powerful.
+        </p>
+      </div>
+
+      <div class="grid-4" style="gap: 1.75rem;">
+        <!-- Pillar 01 -->
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2.5rem 2rem; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+          <div class="font-display" style="font-size: 3rem; font-weight: 900; color: var(--accent); margin-bottom: 0.5rem; line-height: 1;">01</div>
+          <h3 class="font-headline" style="font-size: 1.35rem; font-weight: 800; text-transform: uppercase; color: #FFFFFF; margin-bottom: 0.75rem;">BIOMECHANICS</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65;">
+            Individualized movement screening based on your skeletal anatomy, femur-to-torso ratios, and joint levers to maximize muscular tension with zero joint wear.
+          </p>
+        </div>
+
+        <!-- Pillar 02 -->
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2.5rem 2rem; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+          <div class="font-display" style="font-size: 3rem; font-weight: 900; color: var(--accent); margin-bottom: 0.5rem; line-height: 1;">02</div>
+          <h3 class="font-headline" style="font-size: 1.35rem; font-weight: 800; text-transform: uppercase; color: #FFFFFF; margin-bottom: 0.75rem;">PROGRESSIVE OVERLOAD</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65;">
+            Algorithmic volume and load tracking. We log every single set, velocity milestone, and RPE rating to guarantee continuous neuromuscular adaptation.
+          </p>
+        </div>
+
+        <!-- Pillar 03 -->
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2.5rem 2rem; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+          <div class="font-display" style="font-size: 3rem; font-weight: 900; color: var(--accent); margin-bottom: 0.5rem; line-height: 1;">03</div>
+          <h3 class="font-headline" style="font-size: 1.35rem; font-weight: 800; text-transform: uppercase; color: #FFFFFF; margin-bottom: 0.75rem;">BIO-RESTORATION</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65;">
+            True growth happens during recovery. Our contrast plunge ice tubs, Cedar infrared saunas, and pneumatic compression speed central nervous system reboot.
+          </p>
+        </div>
+
+        <!-- Pillar 04 -->
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2.5rem 2rem; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+          <div class="font-display" style="font-size: 3rem; font-weight: 900; color: var(--accent); margin-bottom: 0.5rem; line-height: 1;">04</div>
+          <h3 class="font-headline" style="font-size: 1.35rem; font-weight: 800; text-transform: uppercase; color: #FFFFFF; margin-bottom: 0.75rem;">ELITE CULTURE</h3>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.65;">
+            Iron sharpens iron. When surrounded by driven athletes holding themselves to high standards, your discipline, focus, and performance naturally surge.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FACILITIES SHOWCASE (3 HIGH-RES SPACES)
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base); padding: 7rem 0;">
+    <div class="container">
+      <div class="flex-between" style="margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; align-items: flex-end;">
+        <div>
+          <div class="section-eyebrow">WORLD-CLASS INFRASTRUCTURE</div>
+          <h2 class="section-title">THE TRAINING SPACES</h2>
+        </div>
+        <button class="btn btn-secondary btn-sm" data-modal-target="trial-modal" data-cursor="JOIN" style="border-radius: 6px; padding: 0.6rem 1.5rem; font-weight: 700;">
+          <span>Schedule Facility Tour</span>
+        </button>
+      </div>
+
+      <div class="grid-3" style="gap: 2rem;">
+        <!-- Space 01 -->
+        <div class="program-card about-space-card" style="min-height: 380px; height: auto; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-subtle);" data-cursor="VIEW">
+          <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1000&auto=format&fit=crop" alt="Free weight strength zone" class="program-card-bg">
+          <div class="program-card-overlay" style="background: linear-gradient(180deg, rgba(6,11,20,0.2) 0%, rgba(6,11,20,0.92) 100%);"></div>
+          <div class="program-card-content" style="padding: 2.25rem;">
+            <span class="badge badge-accent" style="margin-bottom: 0.75rem; align-self: flex-start;">STRENGTH ZONE</span>
+            <h3 class="program-card-title" style="font-size: 1.65rem; text-transform: uppercase;">Heavy Iron Arena</h3>
+            <p class="program-card-desc" style="color: var(--text-secondary); font-size: 0.95rem;">12 Eleiko power cages, calibrated steel competition plates, dumbbell pairs up to 80kg, and dedicated deadlift platforms.</p>
+          </div>
+        </div>
+
+        <!-- Space 02 -->
+        <div class="program-card about-space-card" style="min-height: 380px; height: auto; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-subtle);" data-cursor="VIEW">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1000&auto=format&fit=crop" alt="Conditioning turf" class="program-card-bg">
+          <div class="program-card-overlay" style="background: linear-gradient(180deg, rgba(6,11,20,0.2) 0%, rgba(6,11,20,0.92) 100%);"></div>
+          <div class="program-card-content" style="padding: 2.25rem;">
+            <span class="badge badge-accent" style="margin-bottom: 0.75rem; align-self: flex-start;">ATHLETIC SPEED</span>
+            <h3 class="program-card-title" style="font-size: 1.65rem; text-transform: uppercase;">Sprint &amp; Agility Turf</h3>
+            <p class="program-card-desc" style="color: var(--text-secondary); font-size: 0.95rem;">40-meter indoor sprint turf, reactive acceleration tracks, weighted drive sleds, Concept2 SkiErgs, and plyometric complexes.</p>
+          </div>
+        </div>
+
+        <!-- Space 03 -->
+        <div class="program-card about-space-card" style="min-height: 380px; height: auto; border-radius: 18px; overflow: hidden; border: 1px solid var(--border-subtle);" data-cursor="VIEW">
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop" alt="Recovery lounge" class="program-card-bg">
+          <div class="program-card-overlay" style="background: linear-gradient(180deg, rgba(6,11,20,0.2) 0%, rgba(6,11,20,0.92) 100%);"></div>
+          <div class="program-card-content" style="padding: 2.25rem;">
+            <span class="badge badge-accent" style="margin-bottom: 0.75rem; align-self: flex-start;">RECOVERY</span>
+            <h3 class="program-card-title" style="font-size: 1.65rem; text-transform: uppercase;">Bio-Restoration Wing</h3>
+            <p class="program-card-desc" style="color: var(--text-secondary); font-size: 0.95rem;">Contrast therapy ice plunges (3&deg;C), Finnish infrared cedar sauna (80&deg;C), and NormaTec pneumatic compression suites.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE TIMELINE (2014 - 2026)
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-surface); padding: 7rem 0;">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 720px; margin: 0 auto 4rem; text-align: center;">
+        <div class="section-eyebrow" style="justify-content: center;">OUR EVOLUTION</div>
+        <h2 class="section-title">THE ROAD TO EXCELLENCE</h2>
+        <p class="section-desc" style="margin: 1rem auto 0; font-size: 1rem; color: var(--text-secondary);">
+          A decade of continuous innovation, facility expansion, and relentless dedication to athlete success.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; position: relative;">
+        <!-- Timeline Item 1 -->
+        <div class="about-timeline-card" style="display: flex; gap: 2rem; align-items: stretch; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2rem 2.25rem; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+          <div class="about-timeline-year-col" style="display: flex; flex-direction: column; justify-content: center; width: 110px; flex-shrink: 0; border-right: 1px solid var(--border-subtle); padding-right: 1.5rem;">
+            <div class="font-display" style="font-size: 2.75rem; font-weight: 900; color: var(--accent); line-height: 1;">2014</div>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.35rem;">PHASE 01</span>
+          </div>
+          <div style="padding-left: 0.5rem; display: flex; flex-direction: column; justify-content: center;">
+            <h4 class="font-headline" style="font-size: 1.3rem; font-weight: 800; color: #FFFFFF; text-transform: uppercase; margin-bottom: 0.4rem;">THE UNDERGROUND FACILITY</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65;">
+              NEUROFIT opens its original 4,000 sq. ft strength lab with 4 heavy power cages and an exclusive roster of 50 dedicated competitive lifters.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="about-timeline-card" style="display: flex; gap: 2rem; align-items: stretch; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2rem 2.25rem; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+          <div class="about-timeline-year-col" style="display: flex; flex-direction: column; justify-content: center; width: 110px; flex-shrink: 0; border-right: 1px solid var(--border-subtle); padding-right: 1.5rem;">
+            <div class="font-display" style="font-size: 2.75rem; font-weight: 900; color: var(--accent); line-height: 1;">2018</div>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.35rem;">PHASE 02</span>
+          </div>
+          <div style="padding-left: 0.5rem; display: flex; flex-direction: column; justify-content: center;">
+            <h4 class="font-headline" style="font-size: 1.3rem; font-weight: 800; color: #FFFFFF; text-transform: uppercase; margin-bottom: 0.4rem;">CAMPUS EXPANSION &amp; HYBRID TURF</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65;">
+              Expanded into our flagship 15,000 sq. ft campus, introducing 40m sprint tracks, Olympic lifting platforms, and specialized athletic conditioning.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="about-timeline-card" style="display: flex; gap: 2rem; align-items: stretch; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2rem 2.25rem; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
+          <div class="about-timeline-year-col" style="display: flex; flex-direction: column; justify-content: center; width: 110px; flex-shrink: 0; border-right: 1px solid var(--border-subtle); padding-right: 1.5rem;">
+            <div class="font-display" style="font-size: 2.75rem; font-weight: 900; color: var(--accent); line-height: 1;">2022</div>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.35rem;">PHASE 03</span>
+          </div>
+          <div style="padding-left: 0.5rem; display: flex; flex-direction: column; justify-content: center;">
+            <h4 class="font-headline" style="font-size: 1.3rem; font-weight: 800; color: #FFFFFF; text-transform: uppercase; margin-bottom: 0.4rem;">24/7 SMART BIOMETRIC ACCESS</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65;">
+              Transitioned into a fully automated 24/7 digital ecosystem with contactless mobile entry, smart locker integrations, and automated workout logging.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 4 -->
+        <div class="about-timeline-card" style="display: flex; gap: 2rem; align-items: stretch; background: var(--bg-surface-elevated); border: 1px solid var(--border-medium); border-radius: 16px; padding: 2rem 2.25rem; box-shadow: 0 12px 30px rgba(72,149,241,0.15);">
+          <div class="about-timeline-year-col" style="display: flex; flex-direction: column; justify-content: center; width: 110px; flex-shrink: 0; border-right: 1px solid var(--border-subtle); padding-right: 1.5rem;">
+            <div class="font-display" style="font-size: 2.75rem; font-weight: 900; color: var(--accent-light); line-height: 1;">2026</div>
+            <span class="font-mono" style="font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-top: 0.35rem;">CURRENT</span>
+          </div>
+          <div style="padding-left: 0.5rem; display: flex; flex-direction: column; justify-content: center;">
+            <h4 class="font-headline" style="font-size: 1.3rem; font-weight: 800; color: #FFFFFF; text-transform: uppercase; margin-bottom: 0.4rem;">AI PLATFORM &amp; BIO-RESTORATION</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65;">
+              Launch of real-time velocity-based barbell tracking, full 3D body scans, contrast recovery plunge wings, and global coaching connectivity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STATS SECTION
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base); padding: 5rem 0; border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter="10" data-suffix="+">10+</span></div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter="50000" data-suffix="+">50K+</span></div>
+          <div class="stat-label">Athletes Transformed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter="35" data-suffix="+">35+</span></div>
+          <div class="stat-label">Certified Master Coaches</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number"><span data-counter="24" data-suffix="/7">24/7</span></div>
+          <div class="stat-label">Smart Facility Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FINAL CTA SECTION (MAGNETIC)
+       ========================================================================== -->
+  <section class="section" style="background: radial-gradient(circle at center, rgba(72,149,241,0.14) 0%, #060B14 100%); text-align: center; border-top: 1px solid var(--border-subtle); padding: clamp(6rem, 10vw, 10rem) 0;">
+    <div class="container">
+      <div class="section-eyebrow" style="justify-content: center; color: var(--accent);">YOUR TRANSFORMATION AWAITS</div>
+      <h2 class="font-display" style="font-size: clamp(3rem, 7.5vw, 7.5rem); line-height: 0.9; text-transform: uppercase; color: #FFFFFF; margin-bottom: 1.5rem;">
+        ELEVATE YOUR<br><span style="color: var(--accent);">TRAINING STANDARD.</span>
+      </h2>
+      <p style="color: var(--text-secondary); font-size: clamp(1.05rem, 1.8vw, 1.35rem); max-width: 620px; margin: 0 auto 2.75rem; line-height: 1.65;">
+        Experience world-class coaching, calibrated iron, and smart biometric progress. Claim your complimentary 1-day pass today.
+      </p>
+      <button class="btn btn-primary btn-lg magnetic-btn" data-modal-target="trial-modal" data-cursor="JOIN" style="padding: 1.25rem 3rem; font-size: 1.05rem; border-radius: 8px;">
+        <span>Claim Free 1-Day Trial</span>
+        <i data-lucide="zap"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="nav-brand" style="margin-bottom: 1.5rem; text-decoration: none;">
+            <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            An elite AI-powered performance and fitness platform combining data-driven training, biometric progress tracking, and world-class coaching.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="programs.html" class="footer-link">Programs</a>
+            <a href="trainers.html" class="footer-link">Trainers</a>
+            <a href="membership.html" class="footer-link">Membership</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <div class="footer-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-link">YouTube</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-link">Facebook</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="footer-link">TikTok</a>
+            <a href="https://spotify.com" target="_blank" rel="noopener" class="footer-link">Spotify Training Playlist</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Platform &amp; HQ</div>
+          <div class="footer-contact-item">
+            <i data-lucide="map-pin"></i>
+            <span>Global Athletic Network &bull; 24/7 Access</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="phone"></i>
+            <span>+1 (800) 555-NEURO</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="mail"></i>
+            <span>support@neurofit.io</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="clock"></i>
+            <span>24/7 AI Real-Time Coaching &amp; Tracking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark -->
+      <div class="footer-watermark">NEUROFIT</div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 NEUROFIT FITNESS PLATFORM. ALL RIGHTS RESERVED.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: var(--text-dark);">PRIVACY POLICY</a>
+          <a href="#" style="color: var(--text-dark);">TERMS OF SERVICE</a>
+          <a href="#" style="color: var(--text-dark);">SAFETY GUIDELINES</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       TRIAL / JOIN MODAL
+       ========================================================================== -->
+  <div class="modal-backdrop" id="trial-modal" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <div class="section-eyebrow">BEGIN YOUR JOURNEY</div>
+      <h3 class="font-headline" style="font-size: 2rem; font-weight: 800; text-transform: uppercase; color: var(--text-white); margin-bottom: 0.5rem;">
+        CLAIM YOUR FREE 1-DAY PASS
+      </h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+        Experience the premier 24/7 fitness facility with zero obligation.
+      </p>
+
+      <form class="js-validate-form">
+        <div class="form-success-banner">
+          <i data-lucide="check-circle" style="margin-bottom: 0.5rem; width: 28px; height: 28px;"></i>
+          <div style="font-weight: 700; font-size: 1.1rem;">PASS GENERATED SUCCESSFULLY!</div>
+          <p style="font-size: 0.85rem; margin-top: 0.25rem;">Check your WhatsApp/Email for your digital entry QR code.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="trial-name">Full Name</label>
+          <input type="text" id="trial-name" class="form-control" placeholder="e.g. Tariq Khan" required>
+          <span class="form-feedback">Please enter your full name.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="trial-phone">Phone / WhatsApp</label>
+          <input type="tel" id="trial-phone" class="form-control" placeholder="+92 300 1234567" required>
+          <span class="form-feedback">Please enter your phone number.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="trial-goal">Primary Goal</label>
+          <select id="trial-goal" class="form-control">
+            <option value="strength">Heavy Strength &amp; Power</option>
+            <option value="hypertrophy">Muscle Hypertrophy</option>
+            <option value="fatloss">Fat Loss &amp; Conditioning</option>
+            <option value="athletic">Athletic Speed &amp; Performance</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">
+          <span>Get Free Pass</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Entry Point -->
+  <script src="js/app.js"></script>
+</body>
+</html>

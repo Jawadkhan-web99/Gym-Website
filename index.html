@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEUROFIT | AI-Powered Fitness & Smart Training Platform</title>
+  <meta name="description" content="NEUROFIT is an elite AI-powered fitness platform engineered for high-performance training, smart progression, and rapid body transformation.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="NEUROFIT | AI-Powered Smart Fitness">
+  <meta property="og:description" content="Train Smarter. Transform Faster. Smart AI training and elite coaching.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#050505">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Google Fonts: Space Grotesk, Inter, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- External Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Instant Page Navigation & Selective Preloader (Starts & Refresh Only) -->
+  <script>
+    (function() {
+      try {
+        var perfEntries = (window.performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+        var isReload = (perfEntries.length > 0 && perfEntries[0].type === 'reload') ||
+                       (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+        var hasStarted = sessionStorage.getItem('neurofit_started');
+
+        if (hasStarted && !isReload) {
+          document.documentElement.classList.add('preloader-done');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body data-page="home">
+
+  <!-- ==========================================================================
+       PAGE INITIAL PRELOADER (From Uiverse.io by KSAplay)
+       ========================================================================== -->
+  <div id="page-preloader" class="page-preloader">
+    <div class="loader">
+      <div class="loading-text">
+        Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+      </div>
+      <div class="loading-bar-background">
+        <div class="loading-bar">
+          <div class="white-bars-container">
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Scroll Progress -->
+  <div class="scroll-progress-bar">
+    <div class="scroll-progress-fill"></div>
+  </div>
+
+  <!-- Custom Dual Cursor -->
+  <div class="cursor-wrapper">
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower">
+      <span class="cursor-text"></span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       GLOBAL NAVBAR (NEUROFIT)
+       ========================================================================== -->
+  <header class="site-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" data-cursor="EXPLORE" style="gap: 0.5rem; text-decoration: none;">
+        <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link">Trainers</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm magnetic-btn" data-modal-target="trial-modal" data-cursor="JOIN" style="border-radius: 6px; padding: 0.55rem 1.4rem; font-weight: 700;">
+          <span>Join Now</span>
+        </button>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Overlay Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link active"><span class="num">01</span> Home</a>
+      <a href="about.html" class="mobile-nav-link"><span class="num">02</span> About</a>
+      <a href="programs.html" class="mobile-nav-link"><span class="num">03</span> Programs</a>
+      <a href="trainers.html" class="mobile-nav-link"><span class="num">04</span> Trainers</a>
+      <a href="membership.html" class="mobile-nav-link"><span class="num">05</span> Membership</a>
+      <a href="contact.html" class="mobile-nav-link"><span class="num">06</span> Contact</a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <button class="btn btn-primary btn-lg" data-modal-target="trial-modal">
+        <span>Start Training</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
+      <div class="mobile-nav-meta">
+        <div>24/7 AI-POWERED FITNESS PLATFORM</div>
+        <div>SMART METRICS &bull; BIOMECHANICS &bull; RESULTS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION (MOCKUP RECONSTRUCTION WITH CINEMATIC BG VIDEO)
+       ========================================================================== -->
+  <section class="hero-neurofit">
+    <!-- Cinematic Background Video Loop -->
+    <div class="hero-bg-video-wrap">
+      <video class="hero-bg-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop">
+        <source src="assets/videos/gym-video.mp4" type="video/mp4">
+        <source src="https://raw.githubusercontent.com/technext/training-studio/main/assets/images/gym-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-bg-video-overlay"></div>
+    </div>
+
+
+
+    <!-- Bottom Right Catchphrase Overlay -->
+    <div class="hero-right-overlay">
+      <h3>
+        BUILD YOUR<br>
+        ULTIMATE BODY<br>
+        <span class="text-red">WITH SMART</span>
+        <span class="text-red">TRAINING</span>
+      </h3>
+    </div>
+
+    <div class="container" style="position: relative; z-index: 5; width: 100%;">
+      <div class="hero-neurofit-grid">
+        <!-- Left Side Content -->
+        <div class="hero-left-content">
+          <!-- AI Pill Badge -->
+          <div class="badge-ai-pill">
+            <span class="pill-dot"></span>
+            <span>AI-Powered Fitness Platform</span>
+          </div>
+
+          <!-- Main Hero Headline -->
+          <div class="hero-headline-wrap">
+            <h1 class="hero-headline">
+              TRAIN<br>
+              SMARTER<br>
+              TRANSFORM<br>
+              <span class="text-red">FASTER.</span>
+            </h1>
+          </div>
+
+          <!-- Hero CTA Action Button -->
+          <div style="margin-bottom: 2rem;">
+            <button class="btn btn-primary btn-lg magnetic-btn" data-modal-target="trial-modal" data-cursor="JOIN" style="padding: 1.05rem 2.5rem; font-size: 0.95rem; border-radius: 6px;">
+              <span>Start Training</span>
+            </button>
+          </div>
+
+          <!-- Hero 3-Item Stats Bar -->
+          <div class="hero-stats-row">
+            <div class="hero-stat-block">
+              <span class="hero-stat-val">50K+</span>
+              <span class="hero-stat-desc">Active Users</span>
+            </div>
+            <div class="hero-stat-block">
+              <span class="hero-stat-val">200+</span>
+              <span class="hero-stat-desc">Expert Trainers</span>
+            </div>
+            <div class="hero-stat-block">
+              <span class="hero-stat-val">98%</span>
+              <span class="hero-stat-desc">Success Rate</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Space for Athlete (Responsive layout) -->
+        <div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MARQUEE SLOGAN TICKER
+       ========================================================================== -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="marquee-item"><span>AI-POWERED PROGRESSION</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>ENGINEERED FOR POWER</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>ELITE COACHING</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>SMART BIOMETRICS</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>DATA-DRIVEN RECOVERY</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>AI-POWERED PROGRESSION</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>ENGINEERED FOR POWER</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>ELITE COACHING</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>SMART BIOMETRICS</span> <span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span>DATA-DRIVEN RECOVERY</span> <span class="marquee-dot"></span></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       ELITE COACHES SECTION (MOCKUP RECONSTRUCTION)
+       ========================================================================== -->
+  <section class="coaches-section" id="coaches">
+    <div class="container">
+      <div class="coaches-header-row">
+        <div>
+          <h2 class="coaches-header-title">
+            TRAIN WITH ELITE<br>
+            COACHES WHO<br>
+            DELIVER REAL<br>
+            <span class="text-red">RESULTS</span>
+          </h2>
+        </div>
+        <div class="coaches-header-right">
+          <button class="btn btn-secondary btn-sm" data-modal-target="trial-modal" data-cursor="JOIN" style="border-radius: 6px; padding: 0.55rem 1.4rem; font-weight: 700;">
+            <span>Join Now</span>
+          </button>
+          <p class="coaches-header-desc">
+            Work alongside certified trainers who combine experience, science, and personalized guidance to help you achieve real, lasting results.
+          </p>
+        </div>
+      </div>
+
+      <div class="coaches-grid">
+        <!-- Coach 1: Marcus Johnson -->
+        <div class="coach-mockup-card" data-cursor="VIEW">
+          <div class="coach-mockup-img-wrap">
+            <img src="assets/images/coaches/coach-1.jpg" alt="Marcus Johnson" class="coach-mockup-img" loading="lazy">
+          </div>
+          <div class="coach-mockup-info">
+            <h4 class="coach-mockup-name">MARCUS JOHNSON</h4>
+            <p class="coach-mockup-role">Strength &amp; Hypertrophy</p>
+          </div>
+        </div>
+
+        <!-- Coach 2: Sarah Chen -->
+        <div class="coach-mockup-card" data-cursor="VIEW">
+          <div class="coach-mockup-img-wrap">
+            <img src="assets/images/coaches/coach-2.jpg" alt="Sarah Chen" class="coach-mockup-img" loading="lazy">
+          </div>
+          <div class="coach-mockup-info">
+            <h4 class="coach-mockup-name">SARAH CHEN</h4>
+            <p class="coach-mockup-role">Biomechanics &amp; Conditioning</p>
+          </div>
+        </div>
+
+        <!-- Coach 3: Alex Rivera -->
+        <div class="coach-mockup-card" data-cursor="VIEW">
+          <div class="coach-mockup-img-wrap">
+            <img src="assets/images/coaches/coach-3.jpg" alt="Alex Rivera" class="coach-mockup-img" loading="lazy">
+          </div>
+          <div class="coach-mockup-info">
+            <h4 class="coach-mockup-name">ALEX RIVERA</h4>
+            <p class="coach-mockup-role">HIIT &amp; Explosive Power</p>
+          </div>
+        </div>
+
+        <!-- Coach 4: Elena Rostova -->
+        <div class="coach-mockup-card" data-cursor="VIEW">
+          <div class="coach-mockup-img-wrap">
+            <img src="assets/images/coaches/coach-4.jpg" alt="Elena Rostova" class="coach-mockup-img" loading="lazy">
+          </div>
+          <div class="coach-mockup-info">
+            <h4 class="coach-mockup-name">ELENA ROSTOVA</h4>
+            <p class="coach-mockup-role">Olympic Lifting Specialist</p>
+          </div>
+        </div>
+
+        <!-- Coach 5: Viktor Vance -->
+        <div class="coach-mockup-card" data-cursor="VIEW">
+          <div class="coach-mockup-img-wrap">
+            <img src="assets/images/coaches/coach-5.jpg" alt="Viktor Vance" class="coach-mockup-img" loading="lazy">
+          </div>
+          <div class="coach-mockup-info">
+            <h4 class="coach-mockup-name">VIKTOR VANCE</h4>
+            <p class="coach-mockup-role">Bodybuilding &amp; Form Mastery</p>
+          </div>
+        </div>
+
+        <!-- Coach 6: Jaxon Reid -->
+        <div class="coach-mockup-card" data-cursor="VIEW">
+          <div class="coach-mockup-img-wrap">
+            <img src="assets/images/coaches/coach-6.jpg" alt="Jaxon Reid" class="coach-mockup-img" loading="lazy">
+          </div>
+          <div class="coach-mockup-info">
+            <h4 class="coach-mockup-name">JAXON REID</h4>
+            <p class="coach-mockup-role">Athletic Performance &amp; Mobility</p>
+          </div>
+        </div>
+
+        <!-- Coach 7: Mia Thompson -->
+        <div class="coach-mockup-card" data-cursor="VIEW">
+          <div class="coach-mockup-img-wrap">
+            <img src="assets/images/coaches/coach-7.jpg" alt="Mia Thompson" class="coach-mockup-img" loading="lazy">
+          </div>
+          <div class="coach-mockup-info">
+            <h4 class="coach-mockup-name">MIA THOMPSON</h4>
+            <p class="coach-mockup-role">Nutrition &amp; Elite Transformation</p>
+          </div>
+        </div>
+
+        <!-- Coach 8: Mun Ahmad -->
+        <div class="coach-mockup-card" data-cursor="VIEW">
+          <div class="coach-mockup-img-wrap">
+            <img src="assets/images/coaches/coach-8.jpg" alt="Mun Ahmad" class="coach-mockup-img" loading="lazy">
+          </div>
+          <div class="coach-mockup-info">
+            <h4 class="coach-mockup-name">MUN AHMAD</h4>
+            <p class="coach-mockup-role">Master Functional Trainer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SMART TRAINING PLANS SECTION (MOCKUP RECONSTRUCTION)
+       ========================================================================== -->
+  <section class="smart-pricing-section" id="pricing">
+    <div class="container">
+      <div class="smart-pricing-header">
+        <div class="badge-ai-pill">
+          <span class="pill-dot"></span>
+          <span>Pricing</span>
+        </div>
+        <h2 class="smart-pricing-title">
+          CHOOSE YOUR SMART<br>
+          <span class="text-red">TRAINING PLAN</span>
+        </h2>
+      </div>
+
+      <div class="smart-pricing-cards-grid">
+        <!-- Starter AI Plan -->
+        <div class="smart-card" data-cursor="JOIN">
+          <div class="smart-card-bg-wrap">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop" alt="Starter AI Plan Training" class="smart-card-bg-img" loading="lazy">
+            <div class="smart-card-overlay"></div>
+          </div>
+          <div class="smart-card-content">
+            <div class="smart-card-top">
+              <div class="smart-card-badge">FOUNDATIONAL TIER</div>
+              <div class="smart-price-block">
+                <div class="smart-price-row">
+                  <span class="smart-price-currency">$</span>
+                  <span class="smart-price-current">39</span>
+                  <span class="smart-price-old">$60</span>
+                  <span class="smart-price-slash">/mo</span>
+                </div>
+                <span class="smart-price-freq">Billed monthly &bull; Cancel anytime</span>
+              </div>
+            </div>
+
+            <div class="smart-card-mid">
+              <h3 class="smart-card-plan-name">STARTER AI PLAN</h3>
+              <p class="smart-card-plan-desc">Full access to AI-powered workout progressions and world-class training facilities.</p>
+              
+              <ul class="smart-card-features">
+                <li><i data-lucide="check-circle-2"></i> <span>24/7 Unlimited Gym Floor Access</span></li>
+                <li><i data-lucide="check-circle-2"></i> <span>AI Real-Time Workout &amp; Form Tracking</span></li>
+                <li><i data-lucide="check-circle-2"></i> <span>Monthly InBody 360&deg; Composition Scan</span></li>
+                <li><i data-lucide="check-circle-2"></i> <span>Basic Mobility &amp; Warm-up Protocols</span></li>
+              </ul>
+            </div>
+
+            <div class="smart-card-bottom">
+              <button class="smart-card-btn magnetic-btn" data-modal-target="trial-modal">
+                <span>Start Training</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pro Performance Plan (Featured / Popular) -->
+        <div class="smart-card smart-card-featured" data-cursor="JOIN">
+          <div class="smart-card-featured-pill">
+            <i data-lucide="flame"></i> MOST POPULAR
+          </div>
+          <div class="smart-card-bg-wrap">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop" alt="Pro Performance Plan Training" class="smart-card-bg-img" loading="lazy">
+            <div class="smart-card-overlay"></div>
+          </div>
+          <div class="smart-card-content">
+            <div class="smart-card-top">
+              <div class="smart-card-badge text-accent">ELITE ATHLETE TIER</div>
+              <div class="smart-price-block">
+                <div class="smart-price-row">
+                  <span class="smart-price-currency">$</span>
+                  <span class="smart-price-current">79</span>
+                  <span class="smart-price-old">$120</span>
+                  <span class="smart-price-slash">/mo</span>
+                </div>
+                <span class="smart-price-freq">Billed monthly &bull; VIP Priority</span>
+              </div>
+            </div>
+
+            <div class="smart-card-mid">
+              <h3 class="smart-card-plan-name">PRO PERFORMANCE PLAN</h3>
+              <p class="smart-card-plan-desc">Advanced biometric analytics, dedicated 1-on-1 coaching check-ins, and bio-recovery.</p>
+              
+              <ul class="smart-card-features">
+                <li><i data-lucide="check-circle-2"></i> <span>Everything in Starter AI Included</span></li>
+                <li><i data-lucide="check-circle-2"></i> <span>Weekly 1-on-1 Master Coach Audit</span></li>
+                <li><i data-lucide="check-circle-2"></i> <span>Contrast Ice Plunge &amp; Infrared Sauna</span></li>
+                <li><i data-lucide="check-circle-2"></i> <span>Custom Macro &amp; Nutrition Periodization</span></li>
+                <li><i data-lucide="check-circle-2"></i> <span>Barbell Velocity &amp; Kinetic Force Analysis</span></li>
+              </ul>
+            </div>
+
+            <div class="smart-card-bottom">
+              <button class="smart-card-btn smart-card-btn-featured magnetic-btn" data-modal-target="trial-modal">
+                <span>Go Pro Performance</span>
+                <i data-lucide="zap"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ==========================================================================
+       INTRO STATEMENT (WORD-BY-WORD SCRUB REVEAL - 3 LINES)
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base); border-bottom: 1px solid var(--border-subtle);">
+    <div class="container" style="text-align: center;">
+      <div class="section-eyebrow" style="margin-bottom: 2rem;">THE NEUROFIT CREED</div>
+      <h2 class="font-headline scrub-intro-text" style="font-size: clamp(2.2rem, 4.8vw, 4.2rem); font-weight: 900; line-height: 1.25; text-transform: uppercase; color: var(--text-white); max-width: 1200px; margin: 0 auto;">
+        <div class="scrub-line">YOUR BODY IS BUILT BY WHAT YOU DO EVERY DAY.</div>
+        <div class="scrub-line">DISCIPLINE WILL ALWAYS OUTPERFORM MOTIVATION.</div>
+        <div class="scrub-line text-red">TRANSFORM YOUR LIMITS INTO RAW UNSTOPPABLE POWER.</div>
+      </h2>
+      <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 720px; margin: 2.25rem auto 0; line-height: 1.8;">
+        We don't do gimmicks or short cuts. NEUROFIT is engineered on data-driven progressive overload, strict biomechanics, and relentless consistency.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       THE GYM EXPERIENCE (HORIZONTAL PINNED SCROLL)
+       ========================================================================== -->
+  <section class="horizontal-scroll-container">
+    <div class="container" style="padding-top: 4rem; padding-bottom: 1rem;">
+      <div class="section-eyebrow">FACILITY HIGHLIGHTS</div>
+      <h2 class="section-title">THE GYM EXPERIENCE</h2>
+    </div>
+
+    <div class="horizontal-track">
+      <!-- Panel 01 -->
+      <div class="experience-panel" data-cursor="EXPLORE">
+        <img src="https://images.stockcake.com/public/9/7/e/97e1417d-de69-48b0-9e2e-2d1fa5879c56_large/intense-workout-session-stockcake.jpg" alt="Strength zone" class="experience-panel-bg">
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-top">
+          <span class="experience-panel-num">01</span>
+          <span class="badge badge-accent">HEAVY IRON</span>
+        </div>
+        <div class="experience-panel-bottom">
+          <h3 class="experience-panel-title">STRENGTH</h3>
+          <p class="experience-panel-desc">Custom Eleiko competition power racks, calibrated plates, Olympic barbells, and dumbbell suites ranging from 2kg up to 80kg.</p>
+        </div>
+      </div>
+
+      <!-- Panel 02 -->
+      <div class="experience-panel" data-cursor="EXPLORE">
+        <img src="https://teamroi.com/wp-content/uploads/2023/11/Athlete-Performance-Training-scaled.jpg" alt="Athletic performance conditioning" class="experience-panel-bg">
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-top">
+          <span class="experience-panel-num">02</span>
+          <span class="badge badge-accent">HYBRID TURF</span>
+        </div>
+        <div class="experience-panel-bottom">
+          <h3 class="experience-panel-title">PERFORMANCE</h3>
+          <p class="experience-panel-desc">40-meter indoor sprint turf, sled tracks, SkiErgs, assault bikes, kettlebells, and functional plyometric arenas.</p>
+        </div>
+      </div>
+
+      <!-- Panel 03 -->
+      <div class="experience-panel" data-cursor="EXPLORE">
+        <img src="https://images.stockcake.com/public/a/9/d/a9d8d64e-eb21-4e46-9b19-3dc8db45d1f8_medium/gym-coaching-session-stockcake.jpg" alt="Expert coaching" class="experience-panel-bg">
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-top">
+          <span class="experience-panel-num">03</span>
+          <span class="badge badge-accent">ELITE TIER</span>
+        </div>
+        <div class="experience-panel-bottom">
+          <h3 class="experience-panel-title">COACHING</h3>
+          <p class="experience-panel-desc">Certified strength &amp; conditioning specialists providing biometric tracking, customized programming, and weekly audits.</p>
+        </div>
+      </div>
+
+      <!-- Panel 04 -->
+      <div class="experience-panel" data-cursor="EXPLORE">
+        <img src="https://thumbs.dreamstime.com/b/man-drinking-water-workout-gym-recovery-break-vertical-shot-young-adult-caucasian-resting-towel-shoulders-466588245.jpg" alt="Recovery lounge" class="experience-panel-bg">
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-top">
+          <span class="experience-panel-num">04</span>
+          <span class="badge badge-accent">BIO-RESTORATION</span>
+        </div>
+        <div class="experience-panel-bottom">
+          <h3 class="experience-panel-title">RECOVERY</h3>
+          <p class="experience-panel-desc">Contrast therapy ice plunge tubs, infrared sauna, NormaTec compression boots, and dedicated mobility stretch bays.</p>
+        </div>
+      </div>
+
+      <!-- Panel 05 -->
+      <div class="experience-panel" data-cursor="EXPLORE">
+        <img src="https://d296qbqev3kq48.cloudfront.net/wp-content/uploads/2017/10/14204100/iStock-679305540.jpg" alt="Gym community" class="experience-panel-bg">
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-top">
+          <span class="experience-panel-num">05</span>
+          <span class="badge badge-accent">THE BROTHERHOOD</span>
+        </div>
+        <div class="experience-panel-bottom">
+          <h3 class="experience-panel-title">COMMUNITY</h3>
+          <p class="experience-panel-desc">A serious culture free of egos and distractions. An environment where everyone is driven to lift heavier and move faster.</p>
+        </div>
+      </div>
+
+      <!-- Panel 06 -->
+      <div class="experience-panel" data-cursor="EXPLORE">
+        <img src="https://cdn.leonardo.ai/users/6f7652ea-5bf3-4856-92a9-fe52eb13bea3/generations/1f15ba31-9e12-6b60-b406-551ad17920d9/lucid-origin_an_ultra-detailed_athletic_coach_with_advanced_biometric_holograms_smart_fitness-0.jpg" alt="AI Biometrics and Smart Tracking" class="experience-panel-bg">
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-top">
+          <span class="experience-panel-num">06</span>
+          <span class="badge badge-accent">SMART TRACKING</span>
+        </div>
+        <div class="experience-panel-bottom">
+          <h3 class="experience-panel-title">AI BIOMETRICS</h3>
+          <p class="experience-panel-desc">Real-time velocity-based barbell tracking, joint kinematics analysis, body scan diagnostics, and algorithmic overload models.</p>
+        </div>
+      </div>
+
+      <!-- Panel 07 -->
+      <div class="experience-panel" data-cursor="EXPLORE">
+        <img src="https://thumbs.dreamstime.com/b/african-american-men-gymwear-pedaling-air-bike-trainer-watching-near-medicine-balls-gym-cardio-coaching-weights-454677636.jpg" alt="High-Performance Cardio Arena" class="experience-panel-bg">
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-top">
+          <span class="experience-panel-num">07</span>
+          <span class="badge badge-accent">ENDURANCE SUITE</span>
+        </div>
+        <div class="experience-panel-bottom">
+          <h3 class="experience-panel-title">CARDIO ARENA</h3>
+          <p class="experience-panel-desc">Curved Woodway motorless runners, Concept2 RowErgs &amp; SkiErgs, assault air bikes, and high-altitude conditioning bays.</p>
+        </div>
+      </div>
+
+      <!-- Panel 08 -->
+      <div class="experience-panel" data-cursor="EXPLORE">
+        <img src="https://m.media-amazon.com/images/I/61XJE3PRw0L._AC_UF350,350_QL80_.jpg" alt="Fuel Bar & Athletic Nutrition" class="experience-panel-bg">
+        <div class="experience-panel-overlay"></div>
+        <div class="experience-panel-top">
+          <span class="experience-panel-num">08</span>
+          <span class="badge badge-accent">FUEL &amp; NUTRITION</span>
+        </div>
+        <div class="experience-panel-bottom">
+          <h3 class="experience-panel-title">FUEL BAR</h3>
+          <p class="experience-panel-desc">Cold-pressed electrolyte blends, custom macronutrient shakes, premium isolate protein bars, and clean intra-workout recovery fuel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TRAINING PHILOSOPHY (PARALLAX DEPTH LAYERS)
+       ========================================================================== -->
+  <section class="section philosophy-section" style="position: relative; min-height: 80vh; display: flex; align-items: center; overflow: hidden; background-color: #030304;">
+    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop" 
+         alt="Heavy barbell training" 
+         class="philosophy-bg-img"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 120%; object-fit: cover; filter: brightness(0.35) contrast(1.2); z-index: 1;">
+
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(90deg, rgba(6,6,8,0.92) 0%, rgba(6,6,8,0.6) 60%, rgba(6,6,8,0.92) 100%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 3;">
+      <div class="philosophy-content" style="max-width: 820px;">
+        <div class="section-eyebrow">OUR CORE PRINCIPLE</div>
+        <h2 class="font-display" style="font-size: clamp(3.5rem, 8vw, 7.5rem); line-height: 0.9; text-transform: uppercase; color: var(--text-white); margin-bottom: 1.5rem;">
+          TRAIN WITH PURPOSE.
+        </h2>
+        <p style="font-size: clamp(1.1rem, 1.8vw, 1.45rem); color: var(--text-main); line-height: 1.7; margin-bottom: 2rem;">
+          "Every session has a reason. Every rep has a purpose. Every day moves you closer to the person you want to become."
+        </p>
+        <div class="philosophy-cta-row" style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+          <a href="about.html" class="btn btn-primary magnetic-btn" data-cursor="EXPLORE">
+            <span>Read Our Full Story</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+          <div class="font-mono" style="color: var(--text-muted); font-size: 0.85rem;">
+            FOUNDED ON PROVEN EXERCISE SCIENCE
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PINNED 3D GLOBE + 8 "TRAIN YOUR WAY" PROTOCOL CARDS (INTERACTIVE SYNC)
+       ========================================================================== -->
+  <section class="section pinned-globe-section" id="pinned-globe-experience">
+    <div class="container">
+      <div class="flex-between" style="margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; align-items: flex-end;">
+        <div>
+          <div class="section-eyebrow">SYSTEMATIC PROTOCOLS</div>
+          <h2 class="section-title">TRAIN YOUR WAY</h2>
+        </div>
+        <a href="programs.html" class="btn btn-outline magnetic-btn" data-cursor="VIEW">
+          <span>View All 8 Programs</span>
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="pinned-globe-layout">
+        <!-- Left Side: Sticky 3D Globe Viewport (Clean & Pure) -->
+        <div class="pinned-globe-left">
+          <div class="world-container three-globe-viewport" id="three-canvas-container" data-cursor="EXPLORE"></div>
+        </div>
+
+        <!-- Right Side: 8 Vertically Scrolling Picture Cards (Train Your Way) -->
+        <div class="pinned-globe-right">
+          <!-- Card 01: Strength & Power -->
+          <div class="globe-scroll-card active" data-hub="peshawar" data-lat="34.0151" data-lon="71.5249" data-name="PESHAWAR [HQ]">
+            <img src="https://images.stockcake.com/public/9/7/e/97e1417d-de69-48b0-9e2e-2d1fa5879c56_large/intense-workout-session-stockcake.jpg" alt="Strength & Power" class="globe-scroll-card-bg" loading="lazy">
+            <div class="globe-scroll-card-overlay"></div>
+            <div class="globe-scroll-card-content">
+              <div class="card-num-badge">01 / STRENGTH</div>
+              <h3 class="card-hub-title">STRENGTH &amp; POWER</h3>
+              <p class="card-hub-desc">Maximal motor unit recruitment, heavy compound lifts, and calibrated power racks.</p>
+              <div class="card-hub-metrics">
+                <div class="metric-pill"><i data-lucide="zap"></i> <span>Power Wave</span></div>
+                <div class="metric-pill"><i data-lucide="award"></i> <span>12 Weeks</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 02: Hypertrophy & Hybrid Mass -->
+          <div class="globe-scroll-card" data-hub="dubai" data-lat="25.2048" data-lon="55.2708" data-name="DUBAI [ENERGY HUB]">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1000&auto=format&fit=crop" alt="Hypertrophy & Mass" class="globe-scroll-card-bg" loading="lazy">
+            <div class="globe-scroll-card-overlay"></div>
+            <div class="globe-scroll-card-content">
+              <div class="card-num-badge">02 / HYPERTROPHY</div>
+              <h3 class="card-hub-title">HYBRID HYPERTROPHY</h3>
+              <p class="card-hub-desc">High-volume mechanical tension, targeted hypertrophy splits, and progressive overload.</p>
+              <div class="card-hub-metrics">
+                <div class="metric-pill"><i data-lucide="flame"></i> <span>Mass Building</span></div>
+                <div class="metric-pill"><i data-lucide="trending-up"></i> <span>8-16 Weeks</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 03: Athletic Performance & Speed -->
+          <div class="globe-scroll-card" data-hub="london" data-lat="51.5074" data-lon="-0.1278" data-name="LONDON [KINEMATICS]">
+            <img src="https://teamroi.com/wp-content/uploads/2023/11/Athlete-Performance-Training-scaled.jpg" alt="Athletic Performance" class="globe-scroll-card-bg" loading="lazy">
+            <div class="globe-scroll-card-overlay"></div>
+            <div class="globe-scroll-card-content">
+              <div class="card-num-badge">03 / PERFORMANCE</div>
+              <h3 class="card-hub-title">SPEED &amp; AGILITY</h3>
+              <p class="card-hub-desc">40m indoor sprint turf, reactive acceleration, and explosive triple extension.</p>
+              <div class="card-hub-metrics">
+                <div class="metric-pill"><i data-lucide="crosshair"></i> <span>Sprint Turf</span></div>
+                <div class="metric-pill"><i data-lucide="maximize"></i> <span>6 Weeks</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 04: Functional Biomechanics & Agility -->
+          <div class="globe-scroll-card" data-hub="newyork" data-lat="40.7128" data-lon="-74.0060" data-name="NEW YORK [ATHLETIC APEX]">
+            <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1000&auto=format&fit=crop" alt="Functional Biomechanics" class="globe-scroll-card-bg" loading="lazy">
+            <div class="globe-scroll-card-overlay"></div>
+            <div class="globe-scroll-card-content">
+              <div class="card-num-badge">04 / FUNCTIONAL</div>
+              <h3 class="card-hub-title">KINETIC BIOMECHANICS</h3>
+              <p class="card-hub-desc">Multi-planar rotational torque, core stability, and dual force-plate kinetic analysis.</p>
+              <div class="card-hub-metrics">
+                <div class="metric-pill"><i data-lucide="gauge"></i> <span>Kinematics</span></div>
+                <div class="metric-pill"><i data-lucide="cpu"></i> <span>10 Weeks</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 05: Olympic Weightlifting Precision -->
+          <div class="globe-scroll-card" data-hub="tokyo" data-lat="35.6762" data-lon="139.6503" data-name="TOKYO [NEURAL CLOUD]">
+            <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1000&auto=format&fit=crop" alt="Olympic Weightlifting" class="globe-scroll-card-bg" loading="lazy">
+            <div class="globe-scroll-card-overlay"></div>
+            <div class="globe-scroll-card-content">
+              <div class="card-num-badge">05 / OLYMPIC</div>
+              <h3 class="card-hub-title">OLYMPIC LIFTS</h3>
+              <p class="card-hub-desc">Snatch and Clean &amp; Jerk technical mastery, laser bar-speed tracking, and power output.</p>
+              <div class="card-hub-metrics">
+                <div class="metric-pill"><i data-lucide="database"></i> <span>Olympic Lifts</span></div>
+                <div class="metric-pill"><i data-lucide="zap"></i> <span>Precision</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 06: Bio-Recovery & Cryotherapy -->
+          <div class="globe-scroll-card" data-hub="sydney" data-lat="-33.8688" data-lon="151.2093" data-name="SYDNEY [RECOVERY ARENA]">
+            <img src="https://thumbs.dreamstime.com/b/man-drinking-water-workout-gym-recovery-break-vertical-shot-young-adult-caucasian-resting-towel-shoulders-466588245.jpg" alt="Bio-Recovery" class="globe-scroll-card-bg" loading="lazy">
+            <div class="globe-scroll-card-overlay"></div>
+            <div class="globe-scroll-card-content">
+              <div class="card-num-badge">06 / RECOVERY</div>
+              <h3 class="card-hub-title">BIO-RESTORATION</h3>
+              <p class="card-hub-desc">Contrast ice plunge therapy, infrared saunas, and parasympathetic nervous reboot.</p>
+              <div class="card-hub-metrics">
+                <div class="metric-pill"><i data-lucide="waves"></i> <span>Ice Plunge</span></div>
+                <div class="metric-pill"><i data-lucide="activity"></i> <span>CNS Reboot</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 07: High-Altitude Cardio Arena -->
+          <div class="globe-scroll-card" data-hub="zurich" data-lat="47.3769" data-lon="8.5417" data-name="ZURICH [ALPINE MATRIX]">
+            <img src="https://thumbs.dreamstime.com/b/african-american-men-gymwear-pedaling-air-bike-trainer-watching-near-medicine-balls-gym-cardio-coaching-weights-454677636.jpg" alt="Cardio Arena" class="globe-scroll-card-bg" loading="lazy">
+            <div class="globe-scroll-card-overlay"></div>
+            <div class="globe-scroll-card-content">
+              <div class="card-num-badge">07 / ENDURANCE</div>
+              <h3 class="card-hub-title">CARDIO ARENA</h3>
+              <p class="card-hub-desc">Curved Woodway runners, Concept2 SkiErgs, assault air bikes, and hypoxia conditioning.</p>
+              <div class="card-hub-metrics">
+                <div class="metric-pill"><i data-lucide="mountain"></i> <span>Assault Bike</span></div>
+                <div class="metric-pill"><i data-lucide="wind"></i> <span>VO2 Max</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 08: AI Biometrics & Neural Matrix -->
+          <div class="globe-scroll-card" data-hub="global" data-lat="0.0" data-lon="0.0" data-name="GLOBAL GRID [AUTONOMOUS SYNC]">
+            <img src="https://cdn.leonardo.ai/users/6f7652ea-5bf3-4856-92a9-fe52eb13bea3/generations/1f15ba31-9e12-6b60-b406-551ad17920d9/lucid-origin_an_ultra-detailed_athletic_coach_with_advanced_biometric_holograms_smart_fitness-0.jpg" alt="AI Biometrics" class="globe-scroll-card-bg" loading="lazy">
+            <div class="globe-scroll-card-overlay"></div>
+            <div class="globe-scroll-card-content">
+              <div class="card-num-badge">08 / AI MATRIX</div>
+              <h3 class="card-hub-title">AI BIOMETRICS</h3>
+              <p class="card-hub-desc">Real-time barbell velocity tracking, automated overload formulas, and 3D body scans.</p>
+              <div class="card-hub-metrics">
+                <div class="metric-pill"><i data-lucide="globe"></i> <span>50K+ Nodes</span></div>
+                <div class="metric-pill"><i data-lucide="shield-check"></i> <span>Real-Time</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BUILT FOR MOVEMENT (01 - 06 GSAP SHOWCASE)
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+        <div class="section-eyebrow" style="justify-content: center;">ATHLETIC MATRIX</div>
+        <h2 class="section-title">BUILT FOR MOVEMENT</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">Six foundational athletic capabilities developed systematically within every NEUROFIT training program.</p>
+      </div>
+
+      <div class="grid-3">
+        <div style="padding: 2.25rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px;">
+          <div class="font-display" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">01 / MOBILITY</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Joint capsule integrity, active range of motion, and bulletproof injury resilience under loaded movements.</p>
+        </div>
+
+        <div style="padding: 2.25rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px;">
+          <div class="font-display" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">02 / STRENGTH</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Maximal force production through the neuromuscular system via heavy compound barbell mechanics.</p>
+        </div>
+
+        <div style="padding: 2.25rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px;">
+          <div class="font-display" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">03 / SPEED</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Rapid acceleration, ground-reaction force absorption, and sprint mechanics on our indoor turf lanes.</p>
+        </div>
+
+        <div style="padding: 2.25rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px;">
+          <div class="font-display" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">04 / POWER</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Explosive rate of force development (RFD) utilizing Olympic weightlifting and medicine ball ballistics.</p>
+        </div>
+
+        <div style="padding: 2.25rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px;">
+          <div class="font-display" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">05 / ENDURANCE</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Aerobic engine capacity, lactate threshold buffering, and sustained high-output work capacity.</p>
+        </div>
+
+        <div style="padding: 2.25rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px;">
+          <div class="font-display" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem;">06 / RECOVERY</div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Parasympathetic nervous system recovery, cold plunge vasoconstriction, and targeted myofascial release.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TRANSFORMATION / PROCESS (PINNED STORYTELLING)
+       ========================================================================== -->
+  <section class="transformation-section">
+    <div class="container">
+      <div class="transformation-layout">
+        <!-- Left Pinned Stage Counter -->
+        <div class="transformation-left-pinned">
+          <div class="section-eyebrow">THE 4-PHASE ROADMAP</div>
+          <h2 class="section-title" style="margin-bottom: 1.5rem;">YOUR TRANSFORMATION</h2>
+          <div class="transformation-stage-indicator">01</div>
+          <p style="color: var(--text-muted); font-size: 1rem; max-width: 340px; margin-top: 1rem;">
+            Scroll to walk through the proven methodology that turns beginners into elite performers.
+          </p>
+        </div>
+
+        <!-- Right Side Animated Cards -->
+        <div class="transformation-cards">
+          <!-- Stage 01 -->
+          <div class="transformation-card active" data-stage="01">
+            <div class="transformation-card-badge">STAGE 01 // FOUNDATION</div>
+            <h3 class="transformation-card-title">ASSESS</h3>
+            <p class="transformation-card-desc">
+              We begin with a comprehensive 360-degree assessment: InBody body composition scan, structural mobility screening, movement pattern analysis, and current strength baseline recording.
+            </p>
+          </div>
+
+          <!-- Stage 02 -->
+          <div class="transformation-card" data-stage="02">
+            <div class="transformation-card-badge">STAGE 02 // ARCHITECTURE</div>
+            <h3 class="transformation-card-title">BUILD</h3>
+            <p class="transformation-card-desc">
+              Your coach crafts a tailored training frequency, sets target macro intake, and ingrains flawless movement mechanics for the squat, bench, deadlift, overhead press, and hinge.
+            </p>
+          </div>
+
+          <!-- Stage 03 -->
+          <div class="transformation-card" data-stage="03">
+            <div class="transformation-card-badge">STAGE 03 // OVERLOAD</div>
+            <h3 class="transformation-card-title">PUSH</h3>
+            <p class="transformation-card-desc">
+              Progressive overload kicks into full gear. We track every set and kilogram in your custom log, progressively increasing intensity, volume, and density week-over-week.
+            </p>
+          </div>
+
+          <!-- Stage 04 -->
+          <div class="transformation-card" data-stage="04">
+            <div class="transformation-card-badge">STAGE 04 // MASTERY</div>
+            <h3 class="transformation-card-title">BECOME</h3>
+            <p class="transformation-card-desc">
+              You achieve a body that is lean, dense, powerful, and durable. You don't just look athletic—you move, perform, and think with unwavering discipline and resilience.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STATISTICS SECTION
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base);">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">
+            <span data-counter="10" data-suffix="+">10+</span>
+          </div>
+          <div class="stat-label">Years of Experience</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">
+            <span data-counter="5000" data-suffix="+">5,000+</span>
+          </div>
+          <div class="stat-label">Members Transformed</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">
+            <span data-counter="35" data-suffix="+">35+</span>
+          </div>
+          <div class="stat-label">Certified Master Coaches</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">
+            <span data-counter="24" data-suffix="/7">24/7</span>
+          </div>
+          <div class="stat-label">Year-Round Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       IMAGE EXPANSION SECTION (45vw -> 100vw ON SCROLL)
+       ========================================================================== -->
+  <section class="image-expansion-section">
+    <div class="image-expansion-wrap" data-cursor="EXPLORE">
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop" alt="Barbell training dedication" class="image-expansion-img">
+      <div class="image-expansion-overlay"></div>
+      <div class="image-expansion-content">
+        <div class="section-eyebrow" style="color: var(--accent); justify-content: center;">THE NEUROFIT MINDSET</div>
+        <h2 class="image-expansion-title">NO EXCUSES.<br>JUST PROGRESS.</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TEXT MASK REVEAL SECTION
+       ========================================================================== -->
+  <section class="text-mask-section">
+    <div class="container">
+      <div class="text-mask-title">
+        <div class="text-mask-line">DISCIPLINE.</div>
+        <div class="text-mask-line"><span class="outline">STRENGTH.</span></div>
+        <div class="text-mask-line">TRANSFORMATION.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TESTIMONIALS SECTION
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-surface);">
+    <div class="container">
+      <div class="flex-between" style="margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <div class="section-eyebrow">ATHLETE EXPERIENCES</div>
+          <h2 class="section-title">PROVEN RESULTS</h2>
+        </div>
+        <div class="testimonial-nav" style="display: flex; gap: 0.75rem;">
+          <button class="btn btn-secondary btn-icon testimonial-prev" aria-label="Previous testimonial"><i data-lucide="chevron-left"></i></button>
+          <button class="btn btn-secondary btn-icon testimonial-next" aria-label="Next testimonial"><i data-lucide="chevron-right"></i></button>
+        </div>
+      </div>
+
+      <div class="testimonial-slider" style="position: relative; min-height: 280px;">
+        <!-- Slide 1 -->
+        <div class="testimonial-slide" style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: clamp(2rem, 5vw, 3.5rem);">
+          <div style="display: flex; gap: 0.5rem; color: #ffaa00; margin-bottom: 1.5rem;">
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+          </div>
+          <p style="font-family: var(--font-headline); font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 600; line-height: 1.4; color: var(--text-white); margin-bottom: 2rem;">
+            "NEUROFIT completely changed the way I train. The coaches understand periodization and biomechanics like no other facility in the country. Added 40kg to my total in 6 months."
+          </p>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop" alt="Member Tariq Amin" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);">
+            <div>
+              <div style="font-weight: 700; color: var(--text-white); text-transform: uppercase;">Tariq Amin</div>
+              <div class="font-mono" style="color: var(--accent); font-size: 0.78rem;">POWERLIFTING COMPETITOR // 2 YEARS AT NEUROFIT</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slide" style="display: none; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 16px; padding: clamp(2rem, 5vw, 3.5rem);">
+          <div style="display: flex; gap: 0.5rem; color: #ffaa00; margin-bottom: 1.5rem;">
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+            <i data-lucide="star" style="fill: currentColor; width: 20px; height: 20px;"></i>
+          </div>
+          <p style="font-family: var(--font-headline); font-size: clamp(1.3rem, 2.5vw, 2rem); font-weight: 600; line-height: 1.4; color: var(--text-white); margin-bottom: 2rem;">
+            "The 24/7 access and cold plunge recovery bays are unmatched. No waiting for equipment, no distractions—just serious athletes locked in. Worth every single rupee."
+          </p>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Member Usman Khattak" style="width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent);">
+            <div>
+              <div style="font-weight: 700; color: var(--text-white); text-transform: uppercase;">Usman Khattak</div>
+              <div class="font-mono" style="color: var(--accent); font-size: 0.78rem;">HYBRID ATHLETE // PERFORMANCE MEMBER</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ ACCORDION SECTION
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base);">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+        <div class="section-eyebrow" style="justify-content: center;">HAVE QUESTIONS?</div>
+        <h2 class="section-title">FREQUENTLY ASKED</h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">Everything you need to know about joining NEUROFIT, our training floor, and memberships.</p>
+      </div>
+
+      <div class="accordion-list">
+        <!-- Q1 -->
+        <div class="accordion-item active">
+          <div class="accordion-header">
+            <span class="accordion-question">What membership should I choose?</span>
+            <div class="accordion-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="accordion-body" style="max-height: 200px;">
+            <div class="accordion-content">
+              If you have experience training independently and want unrestricted 24/7 access to world-class iron equipment, the <strong>Basic</strong> tier is ideal. If you want structured group conditioning, regular body composition testing, and access to our contrast recovery plunge, choose <strong>Performance</strong> (most popular). For dedicated 1-on-1 private coaching, select <strong>Elite</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-question">Do you offer personal training?</span>
+            <div class="accordion-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Yes. All our personal trainers hold internationally recognized strength and conditioning certifications (CSCS, NASM, FRC). You can book 1-on-1 blocks or enroll in our Elite membership plan.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-question">Is the gym open 24/7?</span>
+            <div class="accordion-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Yes, 365 days a year. Members receive a secure biometric / RFID digital key on their smartphone to unlock the doors and security gates at any hour.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-question">Do beginners need prior lifting experience?</span>
+            <div class="accordion-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              No prior experience is necessary! Every new member receives a complimentary 45-minute orientation and movement screen with one of our coaches to learn proper form safely.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-question">Can I cancel or freeze my membership?</span>
+            <div class="accordion-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Yes. We do not lock members into predatory contracts. Monthly memberships can be cancelled or frozen for up to 60 days with just a 7-day advance notice via our member portal.
+            </div>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span class="accordion-question">Do you offer nutrition guidance?</span>
+            <div class="accordion-icon"><i data-lucide="chevron-down"></i></div>
+          </div>
+          <div class="accordion-body">
+            <div class="accordion-content">
+              Yes. Our Performance and Elite memberships include custom macro target calculations, meal structuring guidance, and supplement protocols tailored to your training demands.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FINAL CTA SECTION (MAGNETIC)
+       ========================================================================== -->
+  <section class="section" style="background: radial-gradient(circle at center, #1a0a04 0%, #060608 100%); text-align: center; border-top: 1px solid var(--border-subtle); padding: clamp(6rem, 12vw, 12rem) 0;">
+    <div class="container">
+      <div class="section-eyebrow" style="justify-content: center; color: var(--accent);">YOUR TIME IS NOW</div>
+      <h2 class="font-display" style="font-size: clamp(3.5rem, 10vw, 10rem); line-height: 0.88; text-transform: uppercase; color: var(--text-white); margin-bottom: 1.5rem;">
+        BECOME<br><span style="color: var(--accent);">HARDER TO BREAK.</span>
+      </h2>
+      <p style="font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--text-muted); max-width: 620px; margin: 0 auto 3rem; line-height: 1.6;">
+        Your next version starts with your next session. Join the premier performance club today.
+      </p>
+
+      <button class="btn btn-primary btn-lg magnetic-btn animate-glow" data-modal-target="trial-modal" data-cursor="JOIN" style="font-size: 1.1rem; padding: 1.4rem 3.5rem;">
+        <span>Claim Free 1-Day Trial</span>
+        <i data-lucide="zap"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="nav-brand" style="margin-bottom: 1.5rem; text-decoration: none;">
+            <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            An elite AI-powered performance and fitness platform combining data-driven training, biometric progress tracking, and world-class coaching.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="programs.html" class="footer-link">Programs</a>
+            <a href="trainers.html" class="footer-link">Trainers</a>
+            <a href="membership.html" class="footer-link">Membership</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <div class="footer-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-link">YouTube</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-link">Facebook</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="footer-link">TikTok</a>
+            <a href="https://spotify.com" target="_blank" rel="noopener" class="footer-link">Spotify Training Playlist</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Platform &amp; HQ</div>
+          <div class="footer-contact-item">
+            <i data-lucide="map-pin"></i>
+            <span>Global Athletic Network &bull; 24/7 Access</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="phone"></i>
+            <span>+1 (800) 555-NEURO</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="mail"></i>
+            <span>support@neurofit.io</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="clock"></i>
+            <span>24/7 AI Real-Time Coaching &amp; Tracking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark -->
+      <div class="footer-watermark">NEUROFIT</div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 NEUROFIT FITNESS PLATFORM. ALL RIGHTS RESERVED.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: var(--text-dark);">PRIVACY POLICY</a>
+          <a href="#" style="color: var(--text-dark);">TERMS OF SERVICE</a>
+          <a href="#" style="color: var(--text-dark);">SAFETY GUIDELINES</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       TRIAL / JOIN MODAL
+       ========================================================================== -->
+  <div class="modal-backdrop" id="trial-modal" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <div class="section-eyebrow">BEGIN YOUR JOURNEY</div>
+      <h3 class="font-headline" style="font-size: 2rem; font-weight: 800; text-transform: uppercase; color: var(--text-white); margin-bottom: 0.5rem;">
+        CLAIM YOUR FREE 1-DAY PASS
+      </h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+        Experience Peshawar's premier 24/7 fitness facility with zero obligation.
+      </p>
+
+      <form class="js-validate-form">
+        <div class="form-success-banner">
+          <i data-lucide="check-circle" style="margin-bottom: 0.5rem; width: 28px; height: 28px;"></i>
+          <div style="font-weight: 700; font-size: 1.1rem;">PASS GENERATED SUCCESSFULLY!</div>
+          <p style="font-size: 0.85rem; margin-top: 0.25rem;">Check your WhatsApp/Email for your digital entry QR code.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="trial-name">Full Name</label>
+          <input type="text" id="trial-name" class="form-control" placeholder="e.g. Tariq Khan" required>
+          <span class="form-feedback">Please enter your full name.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="trial-phone">Phone / WhatsApp</label>
+          <input type="tel" id="trial-phone" class="form-control" placeholder="+92 300 1234567" required>
+          <span class="form-feedback">Please enter your phone number.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="trial-goal">Primary Goal</label>
+          <select id="trial-goal" class="form-control">
+            <option value="strength">Heavy Strength &amp; Power</option>
+            <option value="hypertrophy">Muscle Hypertrophy</option>
+            <option value="fatloss">Fat Loss &amp; Conditioning</option>
+            <option value="athletic">Athletic Speed &amp; Performance</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">
+          <span>Get Free Pass</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Entry Point -->
+  <script src="js/app.js"></script>
+</body>
+</html>

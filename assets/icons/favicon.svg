@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" rx="20" fill="#08080a"/>
+  <!-- Stylized I and D monogram with gym barbell motif -->
+  <path d="M22 24 H40 V76 H22 Z" fill="#ffffff" />
+  <path d="M48 24 H64 C76 24 84 32 84 50 C84 68 76 76 64 76 H48 Z" fill="none" stroke="#ff3b00" stroke-width="12" stroke-linejoin="round"/>
+  <circle cx="50" cy="50" r="5" fill="#ffffff"/>
+  <line x1="22" y1="50" x2="40" y2="50" stroke="#ff3b00" stroke-width="4"/>
+</svg>

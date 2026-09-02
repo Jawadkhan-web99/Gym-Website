@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Tiers | NEUROFIT - Invest In Yourself</title>
+  <meta name="description" content="Join NEUROFIT Performance Club. Flexible month-to-month and annual tiers with 24/7 keycard access, cold plunge recovery, and expert coaching.">
+  
+  <meta property="og:title" content="Membership Tiers | NEUROFIT">
+  <meta property="og:description" content="Invest in yourself. Transparent membership tiers for serious lifters and athletes.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Google Fonts: Space Grotesk, Inter, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Instant Page Navigation & Selective Preloader (Starts & Refresh Only) -->
+  <script>
+    (function() {
+      try {
+        var perfEntries = (window.performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+        var isReload = (perfEntries.length > 0 && perfEntries[0].type === 'reload') ||
+                       (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+        var hasStarted = sessionStorage.getItem('neurofit_started');
+
+        if (hasStarted && !isReload) {
+          document.documentElement.classList.add('preloader-done');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body data-page="membership">
+
+  <!-- ==========================================================================
+       PAGE INITIAL PRELOADER (From Uiverse.io by KSAplay)
+       ========================================================================== -->
+  <div id="page-preloader" class="page-preloader">
+    <div class="loader">
+      <div class="loading-text">
+        Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+      </div>
+      <div class="loading-bar-background">
+        <div class="loading-bar">
+          <div class="white-bars-container">
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Scroll Progress -->
+  <div class="scroll-progress-bar">
+    <div class="scroll-progress-fill"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-wrapper">
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower">
+      <span class="cursor-text"></span>
+    </div>
+  </div>
+
+  <!-- Global Navbar -->
+  <header class="site-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" data-cursor="EXPLORE" style="gap: 0.5rem; text-decoration: none;">
+        <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link">Trainers</a>
+        <a href="membership.html" class="nav-link active">Membership</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm magnetic-btn" data-modal-target="join-modal" data-cursor="JOIN" style="border-radius: 6px; padding: 0.55rem 1.4rem; font-weight: 700;">
+          <span>Join Now</span>
+        </button>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Overlay Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span class="num">01</span> Home</a>
+      <a href="about.html" class="mobile-nav-link"><span class="num">02</span> About</a>
+      <a href="programs.html" class="mobile-nav-link"><span class="num">03</span> Programs</a>
+      <a href="trainers.html" class="mobile-nav-link"><span class="num">04</span> Trainers</a>
+      <a href="membership.html" class="mobile-nav-link active"><span class="num">05</span> Membership</a>
+      <a href="contact.html" class="mobile-nav-link"><span class="num">06</span> Contact</a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <button class="btn btn-primary btn-lg" data-modal-target="join-modal">
+        <span>Start Training</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
+      <div class="mobile-nav-meta">
+        <div>24/7 AI-POWERED FITNESS PLATFORM</div>
+        <div>SMART METRICS &bull; BIOMECHANICS &bull; RESULTS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="section-hero">
+    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070&auto=format&fit=crop" 
+         alt="NEUROFIT Club Floor" 
+         class="hero-bg-img"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.35) contrast(1.15);">
+    
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(6,6,8,0.2) 0%, rgba(6,6,8,0.9) 100%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 3; width: 100%;">
+      <div class="section-eyebrow" style="margin-bottom: 1.5rem;">TRANSPARENT COMMITMENTS</div>
+      
+      <h1 class="font-display" style="font-size: clamp(3.8rem, 11vw, 10.5rem); line-height: 0.88; text-transform: uppercase; margin-bottom: 2rem;">
+        <div class="hero-title-line">INVEST IN</div>
+        <div class="hero-title-line" style="color: var(--accent);">YOURSELF.</div>
+      </h1>
+
+      <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--text-muted); max-width: 760px; line-height: 1.7; margin-bottom: 2.5rem;">
+        No hidden registration fees. No annual maintenance charges. Pure value, world-class iron, and 24/7 keycard access.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BILLING FREQUENCY TOGGLE & PRICING
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base); padding-top: 3rem;">
+    <div class="container">
+      
+      <!-- Billing Toggle -->
+      <div class="billing-toggle-wrap">
+        <span class="billing-label monthly active">Monthly Billing</span>
+        <div class="billing-switch" aria-label="Toggle annual or monthly pricing">
+          <div class="billing-knob"></div>
+        </div>
+        <span class="billing-label annual">Annual Billing <span class="badge badge-accent" style="margin-left: 0.5rem;">SAVE 20%</span></span>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-grid">
+        
+        <!-- Basic -->
+        <div class="pricing-card">
+          <div class="pricing-top">
+            <div class="pricing-tier">BASIC</div>
+            <div class="pricing-price-wrap">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount" data-monthly-price="29" data-annual-price="23">29</span>
+              <span class="pricing-period">/ month</span>
+            </div>
+            <p class="pricing-desc">For independent lifters who need full 24/7 access to heavy iron and sprint turf.</p>
+            <div class="pricing-features">
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>24/7 Biometric Smart Keycard Access</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>Full Free Weight &amp; Eleiko Power Racks</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>40m Sprint Turf &amp; Sled Access</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>Luxury Lockers &amp; Rain Showers</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>NEUROFIT AI Workout Tracking App</span></div>
+            </div>
+          </div>
+          <button class="btn btn-outline magnetic-btn" data-modal-target="join-modal" data-cursor="JOIN">
+            <span>Select Basic</span>
+          </button>
+        </div>
+
+        <!-- Performance (Featured) -->
+        <div class="pricing-card featured">
+          <div class="badge badge-popular pricing-tag">MOST POPULAR</div>
+          <div class="pricing-top">
+            <div class="pricing-tier">PERFORMANCE</div>
+            <div class="pricing-price-wrap">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount" data-monthly-price="59" data-annual-price="47">59</span>
+              <span class="pricing-period">/ month</span>
+            </div>
+            <p class="pricing-desc">Our flagship athletic protocol with group training, body scans, and cold recovery.</p>
+            <div class="pricing-features">
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <strong>Everything in Basic Tier</strong></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>Unlimited Group Athletic Training</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>Quarterly InBody 570 Composition Scans</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>Infrared Sauna &amp; Ice Plunge Access</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>1 Guest Pass Per Month</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>10% Discount at District Fuel Bar</span></div>
+            </div>
+          </div>
+          <button class="btn btn-primary magnetic-btn" data-modal-target="join-modal" data-cursor="JOIN">
+            <span>Join Performance</span>
+            <i data-lucide="zap"></i>
+          </button>
+        </div>
+
+        <!-- Elite -->
+        <div class="pricing-card">
+          <div class="pricing-top">
+            <div class="pricing-tier">ELITE</div>
+            <div class="pricing-price-wrap">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount" data-monthly-price="99" data-annual-price="79">99</span>
+              <span class="pricing-period">/ month</span>
+            </div>
+            <p class="pricing-desc">The ultimate all-inclusive protocol with private coaching and personalized nutrition.</p>
+            <div class="pricing-features">
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <strong>Everything in Performance</strong></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>2x Monthly 1-on-1 Personal Coaching</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>Custom Periodized Training Blueprint</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>Bi-Weekly Nutrition Audit &amp; Macros</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>Priority Recovery Lounge Booking</span></div>
+              <div class="pricing-feature-item"><i data-lucide="check"></i> <span>VIP Towel &amp; Locker Laundry Service</span></div>
+            </div>
+          </div>
+          <button class="btn btn-outline magnetic-btn" data-modal-target="join-modal" data-cursor="JOIN">
+            <span>Select Elite</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DETAILED FEATURE COMPARISON TABLE
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-surface);">
+    <div class="container">
+      <div class="section-header text-center" style="max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+        <div class="section-eyebrow" style="justify-content: center;">SIDE-BY-SIDE MATRIX</div>
+        <h2 class="section-title">DETAILED PLAN COMPARISON</h2>
+      </div>
+
+      <div class="comparison-table-wrap">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; min-width: 580px;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-medium);">
+              <th style="padding: 1.5rem; font-family: var(--font-headline); font-size: 1.2rem; color: #fff;">Features</th>
+              <th style="padding: 1.5rem; font-family: var(--font-mono); font-size: 1rem; color: var(--text-muted); text-align: center;">BASIC ($29/mo)</th>
+              <th style="padding: 1.5rem; font-family: var(--font-mono); font-size: 1rem; color: var(--accent); text-align: center; background: rgba(255,59,0,0.06);">PERFORMANCE ($59/mo)</th>
+              <th style="padding: 1.5rem; font-family: var(--font-mono); font-size: 1rem; color: var(--text-muted); text-align: center;">ELITE ($99/mo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 1.25rem 1.5rem; color: #fff; font-weight: 600;">24/7 Keycard Entry</td>
+              <td style="text-align: center; color: var(--accent);"><i data-lucide="check"></i></td>
+              <td style="text-align: center; color: var(--accent); background: rgba(255,59,0,0.06);"><i data-lucide="check"></i></td>
+              <td style="text-align: center; color: var(--accent);"><i data-lucide="check"></i></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 1.25rem 1.5rem; color: #fff; font-weight: 600;">Full Free Weight &amp; Turf Floor</td>
+              <td style="text-align: center; color: var(--accent);"><i data-lucide="check"></i></td>
+              <td style="text-align: center; color: var(--accent); background: rgba(255,59,0,0.06);"><i data-lucide="check"></i></td>
+              <td style="text-align: center; color: var(--accent);"><i data-lucide="check"></i></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 1.25rem 1.5rem; color: #fff; font-weight: 600;">Infrared Sauna &amp; Ice Plunge</td>
+              <td style="text-align: center; color: var(--text-dark);">&mdash;</td>
+              <td style="text-align: center; color: var(--accent); background: rgba(255,59,0,0.06);"><i data-lucide="check"></i></td>
+              <td style="text-align: center; color: var(--accent);"><i data-lucide="check"></i></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 1.25rem 1.5rem; color: #fff; font-weight: 600;">InBody Composition Scans</td>
+              <td style="text-align: center; color: var(--text-dark);">&mdash;</td>
+              <td style="text-align: center; color: var(--text-main); background: rgba(255,59,0,0.06); font-family: var(--font-mono); font-size: 0.85rem;">Quarterly</td>
+              <td style="text-align: center; color: var(--text-main); font-family: var(--font-mono); font-size: 0.85rem;">Monthly</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 1.25rem 1.5rem; color: #fff; font-weight: 600;">Unlimited Group Athletic Classes</td>
+              <td style="text-align: center; color: var(--text-dark);">&mdash;</td>
+              <td style="text-align: center; color: var(--accent); background: rgba(255,59,0,0.06);"><i data-lucide="check"></i></td>
+              <td style="text-align: center; color: var(--accent);"><i data-lucide="check"></i></td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 1.25rem 1.5rem; color: #fff; font-weight: 600;">1-on-1 Personal Training</td>
+              <td style="text-align: center; color: var(--text-dark);">&mdash;</td>
+              <td style="text-align: center; color: var(--text-dark); background: rgba(255,59,0,0.06);">&mdash;</td>
+              <td style="text-align: center; color: var(--accent); font-family: var(--font-mono); font-size: 0.85rem;">2 Sessions / Mo</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-subtle);">
+              <td style="padding: 1.25rem 1.5rem; color: #fff; font-weight: 600;">Custom Nutrition &amp; Macro Plan</td>
+              <td style="text-align: center; color: var(--text-dark);">&mdash;</td>
+              <td style="text-align: center; color: var(--text-dark); background: rgba(255,59,0,0.06);">&mdash;</td>
+              <td style="text-align: center; color: var(--accent);"><i data-lucide="check"></i></td>
+            </tr>
+            <tr>
+              <td style="padding: 1.25rem 1.5rem; color: #fff; font-weight: 600;">Locker Laundry &amp; Towel Service</td>
+              <td style="text-align: center; color: var(--text-dark);">&mdash;</td>
+              <td style="text-align: center; color: var(--text-dark); background: rgba(255,59,0,0.06);">&mdash;</td>
+              <td style="text-align: center; color: var(--accent);"><i data-lucide="check"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       GUARANTEE SECTION
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base); border-top: 1px solid var(--border-subtle);">
+    <div class="container" style="text-align: center; max-width: 780px;">
+      <div style="width: 64px; height: 64px; background: rgba(255,59,0,0.1); border: 1px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: var(--accent);">
+        <i data-lucide="shield-check" style="width: 32px; height: 32px;"></i>
+      </div>
+      <h2 class="font-headline" style="font-size: 2.2rem; text-transform: uppercase; color: #fff; margin-bottom: 1rem;">
+        30-DAY 100% SATISFACTION GUARANTEE
+      </h2>
+      <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
+        If you train at NEUROFIT for your first 30 days and feel that our facilities, coaching, or equipment didn't exceed your expectations, we will refund 100% of your membership fee without friction.
+      </p>
+      <button class="btn btn-primary btn-lg magnetic-btn" data-modal-target="join-modal" data-cursor="JOIN">
+        <span>Join Risk-Free Today</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="nav-brand" style="margin-bottom: 1.5rem; text-decoration: none;">
+            <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            An elite AI-powered performance and fitness platform combining data-driven training, biometric progress tracking, and world-class coaching.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="programs.html" class="footer-link">Programs</a>
+            <a href="trainers.html" class="footer-link">Trainers</a>
+            <a href="membership.html" class="footer-link">Membership</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <div class="footer-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-link">YouTube</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-link">Facebook</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="footer-link">TikTok</a>
+            <a href="https://spotify.com" target="_blank" rel="noopener" class="footer-link">Spotify Training Playlist</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Platform &amp; HQ</div>
+          <div class="footer-contact-item">
+            <i data-lucide="map-pin"></i>
+            <span>Global Athletic Network &bull; 24/7 Access</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="phone"></i>
+            <span>+1 (800) 555-NEURO</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="mail"></i>
+            <span>support@neurofit.io</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="clock"></i>
+            <span>24/7 AI Real-Time Coaching &amp; Tracking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark -->
+      <div class="footer-watermark">NEUROFIT</div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 NEUROFIT FITNESS PLATFORM. ALL RIGHTS RESERVED.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: var(--text-dark);">PRIVACY POLICY</a>
+          <a href="#" style="color: var(--text-dark);">TERMS OF SERVICE</a>
+          <a href="#" style="color: var(--text-dark);">SAFETY GUIDELINES</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="join-modal" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <div class="section-eyebrow">MEMBERSHIP ONBOARDING</div>
+      <h3 class="font-headline" style="font-size: 2rem; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 0.5rem;">SELECT YOUR TIER</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Get started immediately with your digital keycard setup.</p>
+      <form class="js-validate-form">
+        <div class="form-success-banner">
+          <i data-lucide="check-circle" style="margin-bottom: 0.5rem; width: 28px; height: 28px;"></i>
+          <div style="font-weight: 700; font-size: 1.1rem;">APPLICATION SUBMITTED!</div>
+          <p style="font-size: 0.85rem; margin-top: 0.25rem;">Our membership concierge will activate your keycard credentials.</p>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="member-name">Full Name</label>
+          <input type="text" id="member-name" class="form-control" placeholder="e.g. Tariq Khan" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="member-phone">Phone / WhatsApp</label>
+          <input type="tel" id="member-phone" class="form-control" placeholder="+92 300 1234567" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="member-plan">Selected Tier</label>
+          <select id="member-plan" class="form-control">
+            <option value="performance" selected>Performance Tier ($59/mo) - Recommended</option>
+            <option value="basic">Basic Tier ($29/mo)</option>
+            <option value="elite">Elite Tier ($99/mo)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">Complete Activation</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

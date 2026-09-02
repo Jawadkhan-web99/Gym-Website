@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Location | NEUROFIT - Let's Get To Work</title>
+  <meta name="description" content="Get in touch with NEUROFIT Performance Club. Visit our 24/7 facility, schedule a movement screen, or speak with our coaching team.">
+  
+  <meta property="og:title" content="Contact &amp; Location | NEUROFIT">
+  <meta property="og:description" content="Let's get to work. Reach out to NEUROFIT Performance Club.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A0A0A">
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+  <!-- Google Fonts: Space Grotesk, Inter, Space Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Instant Page Navigation & Selective Preloader (Starts & Refresh Only) -->
+  <script>
+    (function() {
+      try {
+        var perfEntries = (window.performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+        var isReload = (perfEntries.length > 0 && perfEntries[0].type === 'reload') ||
+                       (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+        var hasStarted = sessionStorage.getItem('neurofit_started');
+
+        if (hasStarted && !isReload) {
+          document.documentElement.classList.add('preloader-done');
+        }
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body data-page="contact">
+
+  <!-- ==========================================================================
+       PAGE INITIAL PRELOADER (From Uiverse.io by KSAplay)
+       ========================================================================== -->
+  <div id="page-preloader" class="page-preloader">
+    <div class="loader">
+      <div class="loading-text">
+        Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+      </div>
+      <div class="loading-bar-background">
+        <div class="loading-bar">
+          <div class="white-bars-container">
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Scroll Progress -->
+  <div class="scroll-progress-bar">
+    <div class="scroll-progress-fill"></div>
+  </div>
+
+  <!-- Custom Dual Cursor -->
+  <div class="cursor-wrapper">
+    <div class="cursor-dot"></div>
+    <div class="cursor-follower">
+      <span class="cursor-text"></span>
+    </div>
+  </div>
+
+  <!-- Global Navbar -->
+  <header class="site-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand" data-cursor="EXPLORE" style="gap: 0.5rem; text-decoration: none;">
+        <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="trainers.html" class="nav-link">Trainers</a>
+        <a href="membership.html" class="nav-link">Membership</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-sm magnetic-btn" data-modal-target="contact-trial-modal" data-cursor="JOIN" style="border-radius: 6px; padding: 0.55rem 1.4rem; font-weight: 700;">
+          <span>Get 1-Day Pass</span>
+        </button>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Overlay Drawer -->
+  <div class="mobile-nav-overlay" aria-hidden="true">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link"><span class="num">01</span> Home</a>
+      <a href="about.html" class="mobile-nav-link"><span class="num">02</span> About</a>
+      <a href="programs.html" class="mobile-nav-link"><span class="num">03</span> Programs</a>
+      <a href="trainers.html" class="mobile-nav-link"><span class="num">04</span> Trainers</a>
+      <a href="membership.html" class="mobile-nav-link"><span class="num">05</span> Membership</a>
+      <a href="contact.html" class="mobile-nav-link active"><span class="num">06</span> Contact</a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <button class="btn btn-primary btn-lg" data-modal-target="contact-trial-modal">
+        <span>Start Training</span>
+        <i data-lucide="arrow-right"></i>
+      </button>
+      <div class="mobile-nav-meta">
+        <div>24/7 AI-POWERED FITNESS PLATFORM</div>
+        <div>SMART METRICS &bull; BIOMECHANICS &bull; RESULTS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="section-hero">
+    <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=2074&auto=format&fit=crop" 
+         alt="NEUROFIT Club Entrance" 
+         class="hero-bg-img"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; filter: brightness(0.35) contrast(1.15);">
+    
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at center, rgba(6,6,8,0.2) 0%, rgba(6,6,8,0.9) 100%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 3; width: 100%;">
+      <div class="section-eyebrow" style="margin-bottom: 1.5rem;">DIRECT ACCESS</div>
+      
+      <h1 class="font-display" style="font-size: clamp(3.8rem, 11vw, 10.5rem); line-height: 0.88; text-transform: uppercase; margin-bottom: 2rem;">
+        <div class="hero-title-line">LET'S GET</div>
+        <div class="hero-title-line" style="color: var(--accent);">TO WORK.</div>
+      </h1>
+
+      <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--text-muted); max-width: 760px; line-height: 1.7; margin-bottom: 2.5rem;">
+        Whether you are seeking 1-on-1 coaching, an Olympic lifting facility, or corporate wellness membership, our team is ready to assist.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT FORM & LOCATION DETAILS
+       ========================================================================== -->
+  <section class="section" style="background-color: var(--bg-base); padding-top: 3rem;">
+    <div class="container">
+      <div class="grid-2" style="gap: 4rem; align-items: start;">
+        
+        <!-- Left: Consultation & Free Pass Booking Form -->
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-medium); border-radius: 16px; padding: 2.5rem;">
+          <div class="section-eyebrow" style="margin-bottom: 0.75rem;">BOOK A SESSION</div>
+          <h3 class="font-headline" style="font-size: 2rem; text-transform: uppercase; color: #fff; margin-bottom: 1rem;">SEND AN INQUIRY</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+            Fill out the form below and one of our Senior Mentors will contact you within 4 hours to arrange your facility tour or trial session.
+          </p>
+
+          <form id="contact-form" class="space-y-4">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">First Name</label>
+                <input type="text" required placeholder="Alex" class="form-input" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: #fff; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--font-sans);">
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Last Name</label>
+                <input type="text" required placeholder="Rivers" class="form-input" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: #fff; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--font-sans);">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Email Address</label>
+                <input type="email" required placeholder="alex@domain.com" class="form-input" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: #fff; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--font-sans);">
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Phone Number</label>
+                <input type="tel" required placeholder="+92 300 0000000" class="form-input" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: #fff; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--font-sans);">
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem;">
+              <label style="display: block; font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Interest / Goal</label>
+              <select class="form-input" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: #fff; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--font-sans);">
+                <option value="general">Facility Membership (Monthly / Annual)</option>
+                <option value="coaching">1-on-1 Elite Coaching &amp; Mentorship</option>
+                <option value="powerlifting">Olympic / Powerlifting Club Access</option>
+                <option value="recovery">Bio-Restoration &amp; Plunge Facility Pass</option>
+              </select>
+            </div>
+
+            <div style="margin-top: 1rem;">
+              <label style="display: block; font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Message / Details</label>
+              <textarea rows="4" placeholder="Tell us about your current training routine and primary objectives..." class="form-input" style="width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: #fff; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--font-sans);"></textarea>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+              <button type="submit" class="btn btn-primary btn-lg magnetic-btn" style="width: 100%;">
+                <span>Submit Inquiry</span>
+                <i data-lucide="send"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Facility Location, Phone, Hours & Interactive Map -->
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+          
+          <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+            <!-- Address -->
+            <div style="display: flex; gap: 1.25rem; align-items: flex-start; background: var(--bg-surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-surface-elevated); display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0;">
+                <i data-lucide="map-pin"></i>
+              </div>
+              <div>
+                <div class="font-mono" style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; font-weight: 700;">HEADQUARTERS LOCATION</div>
+                <div style="color: #fff; font-weight: 700; font-size: 1.1rem; margin-top: 0.25rem;">Plot 42, Sector B-3, Phase 5, Hayatabad</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">Peshawar, Khyber Pakhtunkhwa, Pakistan</p>
+              </div>
+            </div>
+
+            <!-- Hours -->
+            <div style="display: flex; gap: 1.25rem; align-items: flex-start; background: var(--bg-surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-surface-elevated); display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0;">
+                <i data-lucide="clock"></i>
+              </div>
+              <div>
+                <div class="font-mono" style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; font-weight: 700;">TRAINING FACILITY HOURS</div>
+                <div style="color: #fff; font-weight: 700; font-size: 1.1rem; margin-top: 0.25rem;">24 Hours / 7 Days a Week</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">Staffed Coaching Desk: 06:00 - 23:00 Daily</p>
+              </div>
+            </div>
+
+            <!-- Phone & Email -->
+            <div style="display: flex; gap: 1.25rem; align-items: flex-start; background: var(--bg-surface); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-subtle);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--bg-surface-elevated); display: flex; align-items: center; justify-content: center; color: var(--accent); flex-shrink: 0;">
+                <i data-lucide="phone"></i>
+              </div>
+              <div>
+                <div class="font-mono" style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; font-weight: 700;">DIRECT CONTACT</div>
+                <div style="color: #fff; font-weight: 700; font-size: 1.1rem; margin-top: 0.25rem;">+92 91 584 9000 // +92 300 9000100</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">Email: hello@neurofit.com</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Dark Map Visual Placeholder -->
+          <div style="position: relative; height: 260px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-medium); background: #0b0b10; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;" data-cursor="EXPLORE">
+            <!-- Stylized grid overlay -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(rgba(72, 149, 241, 0.2) 1px, transparent 0); background-size: 24px 24px; opacity: 0.6;"></div>
+            
+            <div style="position: relative; z-index: 2;">
+              <div style="width: 52px; height: 52px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: #fff; box-shadow: 0 0 25px var(--accent);">
+                <i data-lucide="navigation"></i>
+              </div>
+              <div class="font-headline" style="font-size: 1.3rem; color: #fff; font-weight: 800; text-transform: uppercase;">NEUROFIT PERFORMANCE CLUB</div>
+              <div class="font-mono" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">34.0151° N, 71.5249° E // HAYATABAD PHASE 5</div>
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-top: 1rem;">
+                <span>Open in Google Maps</span>
+                <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="nav-brand" style="margin-bottom: 1.5rem; text-decoration: none;">
+            <span class="font-display" style="font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; color: #FFFFFF; text-transform: uppercase;">NEURO<span class="text-red">FIT</span></span>
+          </a>
+          <p class="footer-brand-desc">
+            An elite AI-powered performance and fitness platform combining data-driven training, biometric progress tracking, and world-class coaching.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About</a>
+            <a href="programs.html" class="footer-link">Programs</a>
+            <a href="trainers.html" class="footer-link">Trainers</a>
+            <a href="membership.html" class="footer-link">Membership</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <div class="footer-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-link">YouTube</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-link">Facebook</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="footer-link">TikTok</a>
+            <a href="https://spotify.com" target="_blank" rel="noopener" class="footer-link">Spotify Training Playlist</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Platform &amp; HQ</div>
+          <div class="footer-contact-item">
+            <i data-lucide="map-pin"></i>
+            <span>Global Athletic Network &bull; 24/7 Access</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="phone"></i>
+            <span>+1 (800) 555-NEURO</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="mail"></i>
+            <span>support@neurofit.io</span>
+          </div>
+          <div class="footer-contact-item">
+            <i data-lucide="clock"></i>
+            <span>24/7 AI Real-Time Coaching &amp; Tracking</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Watermark -->
+      <div class="footer-watermark">NEUROFIT</div>
+
+      <!-- Copyright Bottom Bar -->
+      <div class="footer-bottom">
+        <div>&copy; 2026 NEUROFIT FITNESS PLATFORM. ALL RIGHTS RESERVED.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#" style="color: var(--text-dark);">PRIVACY POLICY</a>
+          <a href="#" style="color: var(--text-dark);">TERMS OF SERVICE</a>
+          <a href="#" style="color: var(--text-dark);">SAFETY GUIDELINES</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="contact-trial-modal" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <div class="section-eyebrow">FREE 1-DAY PASS</div>
+      <h3 class="font-headline" style="font-size: 2rem; font-weight: 800; text-transform: uppercase; color: #fff; margin-bottom: 0.5rem;">GET YOUR DIGITAL PASS</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">Instant QR access sent to your smartphone.</p>
+      <form class="js-validate-form">
+        <div class="form-success-banner">
+          <i data-lucide="check-circle" style="margin-bottom: 0.5rem; width: 28px; height: 28px;"></i>
+          <div style="font-weight: 700; font-size: 1.1rem;">PASS ISSUED!</div>
+          <p style="font-size: 0.85rem; margin-top: 0.25rem;">Check your messages for your entrance barcode.</p>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ct-name">Full Name</label>
+          <input type="text" id="ct-name" class="form-control" placeholder="e.g. Tariq Khan" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="ct-phone">Phone / WhatsApp</label>
+          <input type="tel" id="ct-phone" class="form-control" placeholder="+92 300 1234567" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">Claim Pass Now</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
