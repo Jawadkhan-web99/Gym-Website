@@ -1259,6 +1259,14 @@
         if (modal) {
           modal.classList.add('active');
           document.body.style.overflow = 'hidden';
+
+          // If target is auth-modal and specifies a tab (e.g. data-auth-tab="signup")
+          if (targetId === 'auth-modal') {
+            const requestedTab = trigger.getAttribute('data-auth-tab') || 'signin';
+            if (typeof window.switchAuthTab === 'function') {
+              window.switchAuthTab(requestedTab);
+            }
+          }
         }
       });
     });
@@ -1280,6 +1288,95 @@
           document.body.style.overflow = '';
         }
       });
+    });
+
+    // Fallback delegated handler for auth modal tab switching
+    document.addEventListener('click', (e) => {
+      const authTab = e.target.closest('.auth-tab');
+      if (authTab && authTab.dataset.tab) {
+        e.preventDefault();
+        if (typeof window.switchAuthTab === 'function') {
+          window.switchAuthTab(authTab.dataset.tab);
+        } else {
+          // Instant DOM fallback switch
+          document.querySelectorAll('.auth-tab').forEach(t => t.classList.toggle('active', t === authTab));
+          const tab = authTab.dataset.tab;
+          const forms = {
+            signin: document.getElementById('auth-signin-form'),
+            signup: document.getElementById('auth-signup-form'),
+            forgot: document.getElementById('auth-forgot-form')
+          };
+          Object.keys(forms).forEach(k => {
+            if (forms[k]) forms[k].style.display = k === tab ? 'block' : 'none';
+          });
+          const header = document.querySelector('.auth-tabs-header');
+          if (header) header.style.display = tab === 'forgot' ? 'none' : 'flex';
+        }
+        return;
+      }
+
+      const switchLink = e.target.closest('[data-switch-tab]');
+      if (switchLink && switchLink.dataset.switchTab) {
+        e.preventDefault();
+        const tab = switchLink.dataset.switchTab;
+        if (typeof window.switchAuthTab === 'function') {
+          window.switchAuthTab(tab);
+        } else {
+          document.querySelectorAll('.auth-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+          const forms = {
+            signin: document.getElementById('auth-signin-form'),
+            signup: document.getElementById('auth-signup-form'),
+            forgot: document.getElementById('auth-forgot-form')
+          };
+          Object.keys(forms).forEach(k => {
+            if (forms[k]) forms[k].style.display = k === tab ? 'block' : 'none';
+          });
+          const header = document.querySelector('.auth-tabs-header');
+          if (header) header.style.display = tab === 'forgot' ? 'none' : 'flex';
+        }
+        return;
+      }
+
+      // Quick Demo Sign In Fallback if Firebase not reachable
+      const quickBtn = e.target.closest('.js-quick-demo-signin');
+      if (quickBtn && !window.auth) {
+        e.preventDefault();
+        const mockUser = {
+          displayName: 'Jawad Khan',
+          email: 'test_gym_user_123@example.com'
+        };
+        try {
+          localStorage.setItem('neurofit_active_user', JSON.stringify(mockUser));
+        } catch(e){}
+        const modal = document.getElementById('auth-modal');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        window.location.href = 'dashboard.html';
+        return;
+      }
+
+      // Google Sign-In Fallback if Firebase not reachable
+      const googleBtn = e.target.closest('.js-google-signin');
+      if (googleBtn && !window.auth) {
+        e.preventDefault();
+        const mockGoogleUser = {
+          displayName: 'Jawad Khan (Google)',
+          email: 'jawad.athlete@gmail.com',
+          photoURL: 'assets/images/trainers/trainer-1.jpg'
+        };
+        try {
+          localStorage.setItem('neurofit_active_user', JSON.stringify(mockGoogleUser));
+        } catch(e){}
+        const modal = document.getElementById('auth-modal');
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        window.location.href = 'dashboard.html';
+        return;
+      }
     });
   }
 

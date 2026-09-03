@@ -2898,3 +2898,1266 @@ textarea.form-control {
     margin-bottom: 1rem;
   }
 }
+
+/* ==========================================================================
+   FIREBASE AUTHENTICATION UI COMPONENTS
+   ========================================================================== */
+
+/* Auth Tabs Header */
+.auth-tabs-header {
+  display: flex;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 1.5rem;
+  gap: 4px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.auth-tab:hover {
+  color: var(--text-white);
+}
+
+.auth-tab.active {
+  background: var(--accent);
+  color: #03070F;
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+/* Auth Alert Banner */
+.auth-alert {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.auth-alert i {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.auth-alert.error {
+  background: rgba(255, 68, 68, 0.12);
+  border: 1px solid rgba(255, 68, 68, 0.4);
+  color: #FF7070;
+}
+
+.auth-alert.success {
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  color: #00FF88;
+}
+
+/* Auth Divider */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--text-dark);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.auth-divider span {
+  padding: 0 1rem;
+  color: var(--text-secondary);
+}
+
+/* Google Sign-in Button */
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-google svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn-google:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--accent);
+  color: var(--text-white);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.15);
+}
+
+/* Password Input Wrapper */
+.auth-password-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.auth-password-wrap input {
+  padding-right: 2.75rem !important;
+}
+
+.auth-password-toggle {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.auth-password-toggle:hover {
+  color: var(--accent);
+}
+
+.auth-password-toggle i {
+  width: 18px;
+  height: 18px;
+}
+
+/* Auth Switch Link */
+.auth-switch-text {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.auth-switch-text a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.35rem;
+  transition: color 0.2s ease;
+}
+
+.auth-switch-text a:hover {
+  color: var(--accent-light);
+  text-decoration: underline;
+}
+
+/* Spinner */
+.auth-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #FFFFFF;
+  animation: authSpin 0.75s linear infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes authSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* User Profile Navbar State */
+.auth-nav-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+.user-profile-menu {
+  position: relative;
+}
+
+.user-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: 30px;
+  padding: 0.35rem 0.85rem 0.35rem 0.45rem;
+  color: var(--text-white);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.user-profile-btn:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  color: #03070F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.82rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.user-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-name {
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary);
+  transition: transform 0.2s ease;
+}
+
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 230px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  padding: 0.75rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85);
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.user-dropdown-menu.active {
+  display: flex;
+}
+
+.user-dropdown-header {
+  padding: 0.35rem 0.5rem 0.5rem;
+}
+
+.user-dropdown-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-white);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-dropdown-email {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  margin-top: 2px;
+}
+
+.user-dropdown-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: 0.4rem 0;
+}
+
+.user-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: 6px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.user-dropdown-item i {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+}
+
+.user-dropdown-item:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--accent-light);
+}
+
+.user-dropdown-item.logout-btn {
+  color: #FF7070;
+}
+
+.user-dropdown-item.logout-btn i {
+  color: #FF7070;
+}
+
+.user-dropdown-item.logout-btn:hover {
+  background: rgba(255, 68, 68, 0.1);
+  color: #FF9999;
+}
+
+/* Mobile Drawer User Card */
+.mobile-user-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.mobile-user-info {
+  overflow: hidden;
+}
+
+.mobile-user-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-user-email {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   MEMBER PORTAL DASHBOARD STYLES (MY MEMBERSHIP & ACTIVE PROGRAMS)
+   ========================================================================== */
+
+.dashboard-hero-section {
+  padding: clamp(6rem, 10vw, 8rem) 0 2rem;
+  background: radial-gradient(circle at top center, rgba(0, 212, 255, 0.08) 0%, var(--bg-base) 70%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.dashboard-user-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.dash-avatar-lg {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #03070F;
+  border: 3px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.25);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.dash-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dash-user-meta h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-white);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.dash-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.dash-user-email {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-family: var(--font-mono);
+}
+
+.dashboard-stat-pills {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.stat-pill i {
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+}
+
+.stat-pill-val {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.1;
+}
+
+.stat-pill-lbl {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Dashboard Navigation Tabs */
+.dashboard-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-subtle);
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.dashboard-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.dash-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.75rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.dash-tab-btn i {
+  width: 18px;
+  height: 18px;
+}
+
+.dash-tab-btn:hover {
+  color: var(--text-white);
+}
+
+.dash-tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: rgba(0, 212, 255, 0.04);
+}
+
+/* Tab Panes */
+.dashboard-tab-content {
+  padding: 3rem 0 6rem;
+}
+
+.dash-tab-pane {
+  display: none;
+}
+
+.dash-tab-pane.active {
+  display: block;
+  animation: fadeIn 0.35s var(--ease-expo);
+}
+
+/* ==========================================================================
+   DIGITAL HOLOGRAPHIC QR KEYCARD (MY MEMBERSHIP)
+   ========================================================================== */
+.membership-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .membership-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.digital-keycard-wrap {
+  perspective: 1000px;
+}
+
+.digital-keycard {
+  position: relative;
+  background: linear-gradient(135deg, #0d1e38 0%, #060e1d 50%, #030812 100%);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 212, 255, 0.15);
+  overflow: hidden;
+  color: var(--text-white);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.digital-keycard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 35%,
+    rgba(0, 212, 255, 0.1) 48%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(0, 212, 255, 0.1) 52%,
+    transparent 65%
+  );
+  transform: rotate(30deg);
+  pointer-events: none;
+  animation: keycardSheen 8s infinite linear;
+}
+
+@keyframes keycardSheen {
+  0% { transform: translateY(-100%) rotate(30deg); }
+  100% { transform: translateY(100%) rotate(30deg); }
+}
+
+.keycard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.keycard-brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.keycard-nfc-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--green-indicator);
+  background: rgba(0, 255, 136, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.keycard-chip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.keycard-chip {
+  width: 44px;
+  height: 34px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #d4af37 0%, #aa8010 100%);
+  border: 1px solid #ffdf70;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.keycard-qr-box {
+  background: #FFFFFF;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.keycard-qr-box svg {
+  width: 64px;
+  height: 64px;
+}
+
+.keycard-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.25rem;
+}
+
+.keycard-holder-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 0.2rem;
+}
+
+.keycard-member-id {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.keycard-facility-tag {
+  text-align: right;
+}
+
+.keycard-facility-city {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.keycard-facility-hours {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* Facility Privileges Grid */
+.facility-perks-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.perk-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.perk-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.perk-card i {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.perk-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-white);
+  margin-bottom: 0.2rem;
+}
+
+.perk-desc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   ACTIVE PROGRAMS & WORKOUT SPLIT
+   ========================================================================== */
+.programs-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 991px) {
+  .programs-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.active-protocol-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.active-protocol-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+}
+
+.protocol-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.protocol-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.protocol-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-white);
+}
+
+.protocol-progress-bar-wrap {
+  margin: 1.5rem 0;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: var(--bg-surface-elevated);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-gradient);
+  border-radius: 10px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Today's Workout Routine Checklist */
+.workout-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}
+
+.exercise-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exercise-item:hover {
+  border-color: var(--accent);
+  background: var(--bg-surface-hover);
+}
+
+.exercise-item.completed {
+  border-color: rgba(0, 255, 136, 0.4);
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.exercise-item.completed .exercise-name {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.exercise-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.exercise-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.exercise-item.completed .exercise-checkbox {
+  background: var(--green-indicator);
+  border-color: var(--green-indicator);
+  color: #03070F;
+}
+
+.exercise-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-white);
+  transition: color 0.2s ease;
+}
+
+.exercise-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+}
+
+/* Weekly Routine Split Cards */
+.weekly-split-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.split-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+}
+
+.split-card.active-day {
+  border-color: var(--accent);
+  background: rgba(0, 212, 255, 0.08);
+}
+
+.split-day {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.split-focus {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text-white);
+  margin-top: 2px;
+}
+
+/* Assigned Master Coach Card */
+.coach-widget {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.coach-widget-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+/* ==========================================================================
+   GYM ATTENDANCE, FEES & DIET PLAN STYLES
+   ========================================================================== */
+
+/* Fee Status Badge */
+.fee-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.fee-status-badge.paid {
+  background: rgba(0, 255, 136, 0.15);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  color: #00FF88;
+}
+
+.fee-status-badge.due {
+  background: rgba(255, 170, 0, 0.15);
+  border: 1px solid rgba(255, 170, 0, 0.4);
+  color: #FFAA00;
+}
+
+/* Attendance Log Items */
+.attendance-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.attendance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.attendance-date {
+  font-weight: 600;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.attendance-time {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.78rem;
+}
+
+/* Gym Workout Days Selector (Chest, Back, Legs, etc.) */
+.gym-day-nav {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.gym-day-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.gym-day-btn {
+  padding: 0.65rem 1.15rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.gym-day-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-white);
+}
+
+.gym-day-btn.active {
+  background: var(--accent);
+  color: #03070F;
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px var(--accent-glow);
+}
+
+/* Gym Diet Plan & Meals */
+.diet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.diet-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.diet-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.diet-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.meal-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-white);
+}
+
+.meal-time-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  background: rgba(0, 212, 255, 0.1);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+}
+
+.meal-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.meal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.meal-item i {
+  width: 16px;
+  height: 16px;
+  color: var(--accent);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.meal-macros {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.macro-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.macro-pill strong {
+  color: var(--text-white);
+}
+
+/* Supplements Stack Grid */
+.supplements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.supp-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.supp-card i {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.supp-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-white);
+  margin-bottom: 2px;
+}
+
+.supp-timing {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* Water Intake Tracker */
+.water-tracker-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, var(--bg-surface) 100%);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.water-glasses-row {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.water-glass-btn {
+  width: 42px;
+  height: 48px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: 6px 6px 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.water-glass-btn:hover {
+  border-color: var(--accent);
+}
+
+.water-glass-btn.filled {
+  background: var(--accent);
+  color: #03070F;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+
+

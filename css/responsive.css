@@ -1055,3 +1055,376 @@
   }
 }
 
+/* ==========================================================================
+   8. GYM MEMBER PORTAL & DASHBOARD RESPONSIVE DESIGN
+   Mobile (< 768px), Tablet (768px - 1024px), Laptop & Desktop (1025px+)
+   ========================================================================== */
+
+/* --- TABLET (768px to 1024px) --- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .dashboard-hero-section {
+    padding: 7rem 0 1.5rem;
+  }
+
+  .dashboard-user-header {
+    gap: 1.5rem;
+  }
+
+  .dashboard-stat-pills {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .stat-pill {
+    padding: 0.75rem 1rem;
+  }
+
+  .membership-grid,
+  .programs-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .diet-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .diet-card {
+    padding: 1.25rem;
+  }
+
+  .water-tracker-card {
+    margin-top: 1.5rem;
+  }
+
+  .water-glasses-row {
+    justify-content: flex-start;
+  }
+
+  .supplements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- MOBILE STANDARD (< 768px) --- */
+@media (max-width: 767px) {
+  .dashboard-hero-section {
+    padding: 5.5rem 0 1rem;
+  }
+
+  .dashboard-user-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dashboard-user-info {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .dash-avatar-lg {
+    width: 58px;
+    height: 58px;
+    font-size: 1.5rem;
+  }
+
+  .dash-user-meta h1 {
+    font-size: 1.35rem;
+    line-height: 1.25;
+    gap: 0.4rem;
+  }
+
+  .dash-tier-badge {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.55rem;
+  }
+
+  .dash-user-email {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+  }
+
+  .dashboard-stat-pills {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+
+  .dashboard-stat-pills .stat-pill:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .stat-pill {
+    padding: 0.65rem 0.85rem;
+    border-radius: 10px;
+    gap: 0.65rem;
+  }
+
+  .stat-pill i {
+    width: 20px;
+    height: 20px;
+  }
+
+  .stat-pill-val {
+    font-size: 1.05rem;
+  }
+
+  .stat-pill-lbl {
+    font-size: 0.68rem;
+  }
+
+  /* Horizontal Scrollable Tabs */
+  .dashboard-tabs {
+    gap: 0.25rem;
+    padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dash-tab-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    gap: 0.45rem;
+  }
+
+  .dash-tab-btn i {
+    width: 16px;
+    height: 16px;
+  }
+
+  .dashboard-tab-content {
+    padding: 1.75rem 0 4rem;
+  }
+
+  /* Grid Stack on Mobile */
+  .membership-grid,
+  .programs-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  /* Digital Keycard Mobile */
+  .digital-keycard {
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+
+  .keycard-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .keycard-brand {
+    font-size: 1.15rem;
+  }
+
+  .keycard-nfc-badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .keycard-chip-row {
+    margin-bottom: 1.25rem;
+  }
+
+  .keycard-chip {
+    width: 36px;
+    height: 28px;
+  }
+
+  .keycard-qr-box svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .keycard-holder-name {
+    font-size: 1rem;
+  }
+
+  .keycard-member-id {
+    font-size: 0.72rem;
+  }
+
+  .keycard-facility-city {
+    font-size: 0.75rem;
+  }
+
+  .keycard-facility-hours {
+    font-size: 0.65rem;
+  }
+
+  /* Day Selector Navigation for Workouts */
+  .gym-day-nav {
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gym-day-btn {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.78rem;
+    border-radius: 6px;
+  }
+
+  /* Exercise Checklist Mobile */
+  .exercise-item {
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    gap: 0.5rem;
+  }
+
+  .exercise-left {
+    gap: 0.75rem;
+  }
+
+  .exercise-checkbox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .exercise-name {
+    font-size: 0.88rem;
+  }
+
+  .exercise-meta {
+    font-size: 0.72rem;
+    line-height: 1.3;
+  }
+
+  .exercise-item .tag-badge {
+    display: none; /* Hide badge on tiny screens to avoid overflow */
+  }
+
+  /* Diet Plan Mobile */
+  .diet-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .diet-card {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+
+  .meal-title {
+    font-size: 1rem;
+  }
+
+  .meal-item {
+    font-size: 0.82rem;
+  }
+
+  .macro-pill {
+    font-size: 0.68rem;
+  }
+
+  /* Water Tracker Glasses Mobile (4 x 2 layout) */
+  .water-glasses-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.6rem;
+  }
+
+  .water-glass-btn {
+    width: 100%;
+    height: 44px;
+  }
+
+  /* Attendance Log on Mobile */
+  .attendance-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .attendance-date {
+    font-size: 0.82rem;
+  }
+
+  .attendance-time {
+    font-size: 0.72rem;
+    padding-left: 1.4rem;
+  }
+
+  /* Stopwatch Timer on Mobile */
+  #timer-display {
+    font-size: 2.25rem !important;
+  }
+
+  /* Coach Widget on Mobile */
+  .coach-widget {
+    padding: 1.25rem;
+  }
+
+  .coach-widget-avatar {
+    width: 75px;
+    height: 75px;
+  }
+
+  /* Modals Mobile Optimization */
+  .modal-container {
+    width: 94% !important;
+    max-width: 94% !important;
+    padding: 1.75rem 1.25rem !important;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 14px !important;
+  }
+
+  .auth-tabs-header {
+    gap: 0.25rem;
+  }
+
+  .auth-tab {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .form-control {
+    font-size: 16px !important; /* Prevents iOS auto-zoom on focus */
+    min-height: 46px;
+  }
+}
+
+/* --- SMALL MOBILE (< 400px) --- */
+@media (max-width: 399px) {
+  .dashboard-stat-pills {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-stat-pills .stat-pill:nth-child(3) {
+    grid-column: auto;
+  }
+
+  .keycard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .keycard-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .keycard-facility-tag {
+    text-align: left;
+  }
+
+  .dash-tab-btn {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .dash-tab-btn span {
+    font-size: 0.75rem;
+  }
+}
+
+

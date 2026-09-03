@@ -110,6 +110,13 @@
       </nav>
 
       <div class="nav-actions">
+        <div class="auth-nav-container">
+          <button class="btn btn-primary btn-sm auth-btn-trigger" data-modal-target="auth-modal" data-auth-action="open-modal" type="button" style="border-radius: 6px; padding: 0.55rem 1.25rem; font-weight: 700; gap: 0.4rem;">
+            <i data-lucide="user" style="width: 16px; height: 16px;"></i>
+            <span>Sign In</span>
+          </button>
+        </div>
+
         <button class="btn btn-secondary btn-sm magnetic-btn" data-modal-target="trial-modal" data-cursor="JOIN" style="border-radius: 6px; padding: 0.55rem 1.4rem; font-weight: 700;">
           <span>Join Now</span>
         </button>
@@ -135,8 +142,14 @@
     </div>
 
     <div class="mobile-nav-footer">
-      <button class="btn btn-primary btn-lg" data-modal-target="trial-modal">
-        <span>Start Training</span>
+      <div class="mobile-auth-container">
+        <button class="btn btn-primary btn-lg auth-btn-trigger" data-modal-target="auth-modal" data-auth-action="open-modal" type="button" style="width: 100%; margin-bottom: 0.75rem; justify-content: center;">
+          <i data-lucide="user"></i>
+          <span>Sign In / Register</span>
+        </button>
+      </div>
+      <button class="btn btn-secondary btn-lg" data-modal-target="trial-modal" style="width: 100%; justify-content: center;">
+        <span>Free Day Pass</span>
         <i data-lucide="arrow-right"></i>
       </button>
       <div class="mobile-nav-meta">
@@ -581,5 +594,169 @@
 
   <!-- Main JavaScript Entry Point -->
   <script src="js/app.js"></script>
+
+  <!-- ==========================================================================
+       FIREBASE AUTH MODAL (SIGN IN, SIGN UP, FORGOT PASSWORD)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="auth-modal" aria-hidden="true">
+    <div class="modal-container" style="max-width: 480px;">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+
+      <!-- Dynamic Alert Banner -->
+      <div id="auth-alert-box" class="auth-alert"></div>
+
+      <!-- Tab Switcher -->
+      <div class="auth-tabs-header">
+        <button class="auth-tab active" data-tab="signin" type="button">Sign In</button>
+        <button class="auth-tab" data-tab="signup" type="button">Create Account</button>
+      </div>
+
+      <!-- 1. SIGN IN FORM -->
+      <form id="auth-signin-form" autocomplete="on">
+        <div class="section-eyebrow" style="margin-bottom: 0.25rem;">WELCOME BACK</div>
+        <h3 class="font-headline" style="font-size: 1.6rem; font-weight: 800; color: var(--text-white); margin-bottom: 1.25rem;">
+          ACCESS YOUR PORTAL
+        </h3>
+
+        <div class="form-group">
+          <label class="form-label" for="signin-email">Email Address</label>
+          <input type="email" id="signin-email" class="form-control" placeholder="name@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label class="form-label" for="signin-password" style="margin-bottom: 0;">Password</label>
+            <a href="#" data-switch-tab="forgot" style="font-size: 0.8rem; color: var(--accent); text-decoration: none;">Forgot?</a>
+          </div>
+          <div class="auth-password-wrap">
+            <input type="password" id="signin-password" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+            <button type="button" class="auth-password-toggle" aria-label="Toggle password visibility">
+              <i data-lucide="eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem; justify-content: center;">
+          <span>Sign In</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+
+        <button type="button" class="btn btn-secondary btn-sm js-quick-demo-signin" style="width: 100%; margin-top: 0.75rem; justify-content: center; gap: 0.5rem; background: rgba(0,212,255,0.08); border-color: rgba(0,212,255,0.3); color: var(--accent); padding: 0.65rem 1rem;">
+          <i data-lucide="zap"></i>
+          <span>⚡ 1-Click Fast Sign In (Auto-Fill)</span>
+        </button>
+
+        <div class="auth-divider">
+          <span>OR CONTINUE WITH</span>
+        </div>
+
+        <button type="button" class="btn-google js-google-signin">
+          <svg viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+
+        <div class="auth-switch-text">
+          Don't have an account?
+          <a href="#" data-switch-tab="signup">Create Account</a>
+        </div>
+      </form>
+
+      <!-- 2. SIGN UP FORM -->
+      <form id="auth-signup-form" style="display: none;" autocomplete="on">
+        <div class="section-eyebrow" style="margin-bottom: 0.25rem;">BECOME A MEMBER</div>
+        <h3 class="font-headline" style="font-size: 1.6rem; font-weight: 800; color: var(--text-white); margin-bottom: 1.25rem;">
+          JOIN NEUROFIT
+        </h3>
+
+        <div class="form-group">
+          <label class="form-label" for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" class="form-control" placeholder="e.g. Jawad Khan" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" class="form-control" placeholder="name@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signup-password">Password (min 6 characters)</label>
+          <div class="auth-password-wrap">
+            <input type="password" id="signup-password" class="form-control" placeholder="Create strong password" required autocomplete="new-password">
+            <button type="button" class="auth-password-toggle" aria-label="Toggle password visibility">
+              <i data-lucide="eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signup-confirm-password">Confirm Password</label>
+          <div class="auth-password-wrap">
+            <input type="password" id="signup-confirm-password" class="form-control" placeholder="Confirm your password" required autocomplete="new-password">
+            <button type="button" class="auth-password-toggle" aria-label="Toggle password visibility">
+              <i data-lucide="eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem; justify-content: center;">
+          <span>Create Account</span>
+          <i data-lucide="arrow-right"></i>
+        </button>
+
+        <div class="auth-divider">
+          <span>OR SIGN UP WITH</span>
+        </div>
+
+        <button type="button" class="btn-google js-google-signin">
+          <svg viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>Continue with Google</span>
+        </button>
+
+        <div class="auth-switch-text">
+          Already have an account?
+          <a href="#" data-switch-tab="signin">Sign In</a>
+        </div>
+      </form>
+
+      <!-- 3. FORGOT PASSWORD FORM -->
+      <form id="auth-forgot-form" style="display: none;" autocomplete="on">
+        <div class="section-eyebrow" style="margin-bottom: 0.25rem;">RECOVERY</div>
+        <h3 class="font-headline" style="font-size: 1.6rem; font-weight: 800; color: var(--text-white); margin-bottom: 0.5rem;">
+          RESET PASSWORD
+        </h3>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Enter your registered email address and we'll send you a link to reset your password.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label" for="forgot-email">Email Address</label>
+          <input type="email" id="forgot-email" class="form-control" placeholder="name@example.com" required autocomplete="email">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem; justify-content: center;">
+          <span>Send Reset Link</span>
+          <i data-lucide="mail"></i>
+        </button>
+
+        <div class="auth-switch-text">
+          Remembered your password?
+          <a href="#" data-switch-tab="signin">Back to Sign In</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Firebase Authentication Script Module -->
+  <script type="module" src="js/auth.js"></script>
 </body>
 </html>
